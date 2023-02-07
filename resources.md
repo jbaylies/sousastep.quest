@@ -3,6 +3,8 @@ layout: page
 title: Resources
 ---
 
+![woods](../images/numouthpieces.jpg)
+
 ### Assorted Resources
 
 [free and/or open source software & plugins](https://whyreaper.com/plugins-resources/)

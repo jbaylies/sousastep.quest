@@ -14,6 +14,14 @@ title: Links
 YouTube: [sousastep](https://www.youtube.com/@sousastep) 
 / [jbaylies](https://www.youtube.com/@jbaylies)
 
+### Projects
+
+[Github repos](https://github.com/jbaylies)
+
+[nu mouthpieces](https://numouthpieces.com/)
+
+![nu](../images/numouthpieces.jpg)
+
 ### Audio
 
 Bandcamp: [sousastep](https://sousastep.bandcamp.com) / [jbaylies](https://bandcamp.com/sousastep)
@@ -22,6 +30,4 @@ SoundCloud: [sousastep](https://soundcloud.com/sousastep) / [jbaylies](https://s
 
 [Mixcloud](https://www.mixcloud.com/john-baylies)
 
-### Projects
-
-[Github](https://github.com/jbaylies)
+![blur](../images/john1.jpg)
