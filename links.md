@@ -14,6 +14,8 @@ title: Links
 YouTube: [sousastep](https://www.youtube.com/@sousastep) 
 / [jbaylies](https://www.youtube.com/@jbaylies)
 
+![busking](../images/subway.png)
+
 ### Projects
 
 [Github repos](https://github.com/jbaylies)

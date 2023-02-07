@@ -3,6 +3,8 @@ layout: page
 title: Tutorial：LED Sousa Bell
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QO5Y-jYbiPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Many thanks to the [Brooklyn College Sonic Arts](http://www.brooklyn.cuny.edu/web/academics/centers/ccm/education/sonicarts.php) program and the [Performance And Interactive Media Arts](https://www.pima-brooklyncollege.info/) program!
 
 [Click here](https://www.youtube.com/watch?v=K3kPgxQ373U) for a compilation of short clips I recorded while I was making the bell.

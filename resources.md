@@ -3,7 +3,7 @@ layout: page
 title: Resources
 ---
 
-![woods](../images/numouthpieces.jpg)
+![woods](../images/woods.jpg)
 
 ### Assorted Resources
 
