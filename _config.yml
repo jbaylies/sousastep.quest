@@ -14,6 +14,22 @@ baseurl: ""
 permalink: pretty
 highlighter: rouge
 
+# Gems
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
