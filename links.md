@@ -3,6 +3,8 @@ layout: page
 title: Links
 ---
 
+![blur](../images/john1.jpg)
+
 ### Social Media
 
 [Instagram](https://www.instagram.com/sousasteps)
@@ -16,15 +18,11 @@ YouTube: [sousastep](https://www.youtube.com/@sousastep)
 
 [LinkedIn](https://www.linkedin.com/in/johnbaylies/)
 
-![busking](../images/subway.png)
-
 ### Projects
 
 [Github repos](https://github.com/jbaylies)
 
 [nu mouthpieces](https://numouthpieces.com/)
-
-![nu](../images/numouthpieces.jpg)
 
 ### Audio
 
@@ -34,4 +32,6 @@ SoundCloud: [sousastep](https://soundcloud.com/sousastep) / [jbaylies](https://s
 
 [Mixcloud](https://www.mixcloud.com/john-baylies)
 
-![blur](../images/john1.jpg)
+![busking](../images/subway.png)
+
+
