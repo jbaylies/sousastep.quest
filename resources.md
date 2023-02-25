@@ -115,17 +115,15 @@ title: Resources
 
 [running and maintaining Open Source projects](https://un.curl.dev/)
 
-[Useful FFmpeg commands](https://github.com/mitio/useful-ffmpeg-commands)
-
-[Oh Shit, Git!?!](https://ohshitgit.com/)
-
-[Flight rules for git](https://github.com/k88hudson/git-flight-rules)
-
-[https://www.shadertoy.com/](shadertoys)
+[Shader Toys](https://www.shadertoy.com/)
 
 [Ozymandias](http://thecodelesscode.com/case/234)
 
-[versary.town](https://versary.town/)
+[versary.town](https://versary.town/) (where I got this website's cursor idea from)
+
+[Useful FFmpeg commands](https://github.com/mitio/useful-ffmpeg-commands)
+
+[Flight rules for git](https://github.com/k88hudson/git-flight-rules) + [Oh Shit, Git!?!](https://ohshitgit.com/)
 
 
 ### windows

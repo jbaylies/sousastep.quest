@@ -7,11 +7,11 @@ title: Links
 
 ### Social Media
 
+[Discord](https://discord.gg/feBwTZt84d)
+
 [Instagram](https://www.instagram.com/sousasteps)
 
 [TikTok](https://www.tiktok.com/@sousastep)
-
-[Discord](https://discord.gg/qNbP6pKU)
 
 YouTube: [sousastep](https://www.youtube.com/@sousastep) 
 / [jbaylies](https://www.youtube.com/@jbaylies)
@@ -31,6 +31,8 @@ Bandcamp: [sousastep](https://sousastep.bandcamp.com) / [jbaylies](https://bandc
 SoundCloud: [sousastep](https://soundcloud.com/sousastep) / [jbaylies](https://soundcloud.com/jbaylies) / [rudolf's back](https://soundcloud.com/rudolfs-back)
 
 [Mixcloud](https://www.mixcloud.com/john-baylies)
+
+[last.fm](https://www.last.fm/user/jbaylies)
 
 ![busking](../images/subway.png)
 

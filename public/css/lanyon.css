@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 .masthead-title small {
   font-size: 75%;
   font-weight: 400;
-  color: #c0c0c0;
+  color: #1B282D; /* #c0c0c0; */
   letter-spacing: 0;
 }
 
@@ -410,7 +410,7 @@ html {
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  color: #8C8C8C; /* #ccc; */
   text-align: center;
 }
 
