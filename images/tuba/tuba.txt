@@ -1,0 +1,5 @@
+frames extracted from gif and flipped with imagemagik
+https://stackoverflow.com/questions/26583935/extracting-frames-from-gif
+https://www.scivision.dev/image-flip-command-line/
+
+convert 'tuba.gif[0-10]' -flop frames%03d.jpg

@@ -38,6 +38,9 @@
 html,
 body {
   overflow-x: hidden;
+
+  /* https://css-tricks.com/forums/topic/animated-cursor/ */
+  animation: animate 4s infinite;
 }
 
 html {
@@ -154,6 +157,9 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
+
+  /* https://css-tricks.com/forums/topic/animated-cursor/ */
+  animation: animate 3s infinite;
 }
 @media (min-width: 30em) {
   .sidebar {
@@ -253,6 +259,46 @@ a.sidebar-nav-item:focus {
 @media print {
   .sidebar-toggle {
     display: none;
+  }
+}
+
+/*
+html {
+    cursor: url('../../images/tuba.gif'), pointer;
+}
+*/
+
+/* https://css-tricks.com/forums/topic/animated-cursor/ */
+@keyframes animate{
+  0%{ 
+    cursor: url("../../images/tuba/frames000.gif"), auto;
+  }
+  60%{ 
+    cursor: url("../../images/tuba/frames001.gif"), auto;
+  }
+  65%{ 
+    cursor: url("../../images/tuba/frames002.gif"), auto;
+  }
+  70%{ 
+    cursor: url("../../images/tuba/frames003.gif"), auto;
+  }
+  75%{ 
+    cursor: url("../../images/tuba/frames004.gif"), auto;
+  }
+  80%{ 
+    cursor: url("../../images/tuba/frames005.gif"), auto;
+  }
+  85%{ 
+    cursor: url("../../images/tuba/frames006.gif"), auto;
+  }
+  90%{ 
+    cursor: url("../../images/tuba/frames007.gif"), auto;
+  }
+  95%{ 
+    cursor: url("../../images/tuba/frames008.gif"), auto;
+  }
+  100%{ 
+    cursor: url("../../images/tuba/frames009.gif"), auto;
   }
 }
 
