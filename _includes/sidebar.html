@@ -29,11 +29,46 @@
     <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
     <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
 -->
+
+<script type="text/javascript">
+  var imageUrls = [
+       "{{ site.baseurl }}/images/88x31/antinft.gif"
+     , "{{ site.baseurl }}/images/88x31/anybrowser3.gif"
+     , "{{ site.baseurl }}/images/88x31/bobbutton.gif"
+     , "{{ site.baseurl }}/images/88x31/cogs.gif"
+     , "{{ site.baseurl }}/images/88x31/copy_floppy.gif"
+     , "{{ site.baseurl }}/images/88x31/devils_button.gif"
+     , "{{ site.baseurl }}/images/88x31/gbc.gif"
+     , "{{ site.baseurl }}/images/88x31/gc_bourbonstreet.gif"
+     , "{{ site.baseurl }}/images/88x31/hartscorned.gif"
+     , "{{ site.baseurl }}/images/88x31/quake_ctf_now30.gif"
+     , "{{ site.baseurl }}/images/88x31/sanehtml.gif"
+     , "{{ site.baseurl }}/images/88x31/slap-like-now.gif"
+     , "{{ site.baseurl }}/images/88x31/yoshihatchbutton.gif"
+     , "{{ site.baseurl }}/images/88x31/ztclink.gif"
+     , "{{ site.baseurl }}/images/88x31/robocats.gif"
+  ];
+  function getImageHtmlCode() {
+    var dataIndex = Math.floor(Math.random() * imageUrls.length);
+    var img = '<a href=\"https://www.sousastep.quest/resources/\"><img src="';        
+    img += imageUrls[dataIndex];
+    img += '\" class=\"center\" alt=\"Jorgesys Stackoverflow.com\"/></a>';
+    return img;
+  }
+</script>
+
   </nav>
 
+  <div class="sidebar-item">
+    <script type="text/javascript">
+      document.write(getImageHtmlCode());
+    </script>
+  </div>
+<!--
   <div class="sidebar-item">
     <p>
       &copy; {{ site.time | date: '%Y' }}. All rights reserved.
     </p>
   </div>
+-->
 </div>
