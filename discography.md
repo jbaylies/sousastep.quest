@@ -5,6 +5,11 @@ title: Discography
 
 ## 2023
 
+[Sousastep - assorted jams](https://sousastep.bandcamp.com/album/assorted-jams)<br/>
+(perform, record, mix, improvised dubstep) <br/>
+![assorted-jams](../images/assorted-jams.jpg) <br/>
+ <br/>
+
 [Brendan Ige - Carnival of the Animals：A Dichotomy of Music](https://brendanige.bandcamp.com/album/carnival-of-the-animals-a-dichotomy-of-music  "This is a tooltip :)") <br/>
 (record, mix, modern classical tuba) <br/>
 ![brendan](../images/brendan.jpg "This is a tooltip :)") <br/>

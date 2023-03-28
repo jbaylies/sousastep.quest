@@ -37,6 +37,8 @@ title: Resources
 
 ### assorted resources
 
+[Electrobrass Encyclopedia (WIP)](https://jbaylies.github.io/Electrobrass_Encyclopedia/en/master/index.html)
+
 [The basics of various types of music equipment](http://artsites.ucsc.edu/ems/Music/equipment/equipment.html)
 
 [free and/or open source software & plugins](https://whyreaper.com/plugins-resources/)
@@ -111,26 +113,16 @@ title: Resources
 
 [Affordances and Constraints of Modular Synthesis in Virtual Reality](https://alicelab.world/msvr/)
 
-[Finding Your Home in Game Graphics Programming](https://alextardif.com/LearningGraphics.html)
-
-[running and maintaining Open Source projects](https://un.curl.dev/)
-
 [Shader Toys](https://www.shadertoy.com/)
 
 [Ozymandias](http://thecodelesscode.com/case/234)
 
 [versary.town](https://versary.town/) (where I got this website's cursor idea from)
 
-[Useful FFmpeg commands](https://github.com/mitio/useful-ffmpeg-commands)
-
-[Flight rules for git](https://github.com/k88hudson/git-flight-rules) + [Oh Shit, Git!?!](https://ohshitgit.com/)
-
 
 ### windows
 
 [Unofficial Windows 10 Audio Workstation build and tweak guide](https://aka.ms/Win10AudioTweakGuide)
-
-[rants](https://i.imgur.com/y6clspP.jpg)
 
 
 ### wallpapers
