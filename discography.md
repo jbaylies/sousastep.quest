@@ -5,8 +5,13 @@ title: Discography
 
 ## 2023
 
+[Sousastep - Sousastep](https://sousastep.bandcamp.com/album/sousastep-2)<br/>
+(perform, record, mix, jazz fusion / dubstep) <br/>
+![sousastep-EP](../images/sousastep-EP.jpg) <br/>
+ <br/>
+
 [Sousastep - assorted jams](https://sousastep.bandcamp.com/album/assorted-jams)<br/>
-(perform, record, mix, improvised dubstep) <br/>
+(perform, record, mix, free improv / dubstep) <br/>
 ![assorted-jams](../images/assorted-jams.jpg) <br/>
  <br/>
 
