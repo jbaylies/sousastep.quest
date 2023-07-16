@@ -5,6 +5,8 @@ title: Links
 
 ![blur](../images/john1.jpg)
 
+[linktr.ee](https://linktr.ee/sousastep)
+
 ### Social Media
 
 [Discord](https://discord.gg/feBwTZt84d)

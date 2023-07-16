@@ -6,7 +6,7 @@ title: Discography
 ## 2023
 
 Sousastep - Sousastep <br/>
-[Bandcamp](https://sousastep.bandcamp.com/album/sousastep-2), [Spotify, etc.](https://ditto.fm/sousastep)<br/>
+[Bandcamp](https://sousastep.bandcamp.com/album/sousastep-2), [Soundcloud](https://soundcloud.com/sousastep/sets/sousastep), [Spotify, etc.](https://ditto.fm/sousastep)<br/>
 ![sousastep-EP](../images/sousastep-EP.jpg) <br/>
 
 Sousastep - Assorted Jams Volume 1 <br/>
