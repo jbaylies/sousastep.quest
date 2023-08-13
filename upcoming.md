@@ -16,6 +16,10 @@ May 29: Rockwood Stage 2<br>
 
 ## 2022
 
+October 31: Rockwood Stage 2<br>
+    Steven McArdle - drums + fx<br>
+    David Baylies - trumpet + fx<br>
+
 August 18: H0L0 “Warper Party”<br>
     Clemens Graßman - drums<br>
     David Baylies - trumpet + fx<br>
