@@ -3,8 +3,6 @@ layout: page
 title: Creative Coding
 ---
 
-### my max patches
-
 - [rig for playing dubstep with tuba and PS4 controller](https://github.com/jbaylies/sousastep)
 
 - [rig for general-purpose FX with tuba and PS4 controller](https://github.com/jbaylies/harrys_tuba_multieffects)
