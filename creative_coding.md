@@ -3,7 +3,7 @@ layout: page
 title: Creative Coding
 ---
 
-- [rig for playing dubstep with tuba and PS4 controller](https://github.com/jbaylies/sousastep)
+- [Extended Instruments in Max](https://cycling74.com/articles/extended-instruments-in-max)
 
 - [rig for general-purpose FX with tuba and PS4 controller](https://github.com/jbaylies/harrys_tuba_multieffects)
 
@@ -18,7 +18,7 @@ title: Creative Coding
 
 ### Eventide H9000
 
-- [my custom algorithms](https://github.com/jbaylies/sousastep-h9000-presets)
+- [custom algorithms](https://github.com/jbaylies/sousastep-h9000-presets)
 
 - [gen~ on the H9000](https://cdn.eventideaudio.com/manuals/h9000/2.0/content/development/gen~.html)
 
