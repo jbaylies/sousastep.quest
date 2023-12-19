@@ -9,7 +9,11 @@ title: Links
 
 ### Social Media
 
-[Discord](https://discord.gg/feBwTZt84d)
+[![Discord](https://img.shields.io/discord/1044699978993504368?label=Discord&logo=discord&logoColor=5865F2&style=flat-square&color=5865F2)](https://discord.gg/feBwTZt84d)
+
+[![Twitch Status](https://img.shields.io/twitch/status/sousastep?label=Twitch&logo=twitch)](https://www.twitch.tv/sousastep)
+
+[comment]: # [<img alt="Discord" src="https://img.shields.io/discord/1044699978993504368?label=Discord&logo=discord&logoColor=5865F2&style=flat-square&color=5865F2">](https://discord.gg/feBwTZt84d)
 
 [Instagram](https://www.instagram.com/sousasteps)
 
