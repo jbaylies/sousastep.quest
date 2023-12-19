@@ -11,7 +11,7 @@ title: Mailing List
         <p><input type="text" name="name" placeholder="Name (optional)" /></p>  
         <p>
           <input id="94875" type="checkbox" name="l" checked value="94875614-88f9-49e2-8f9a-78e5e6e1aac3" />
-          <label for="94875">Opt-in list</label>
+          <label for="94875">Stay informed about new releases.</label>
         </p>        
         <p><input type="submit" value="Subscribe" /></p>
     </div>
