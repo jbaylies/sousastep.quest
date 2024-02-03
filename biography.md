@@ -3,7 +3,7 @@ layout: page
 title: Biography
 ---
 
-John Baylies is a freelance tuba player and audio technician known for his experiments in electroacoustic improvisation. A native of North Andover, Massachusetts, John currently lives in New York City where he leads his band [Sousastep](https://www.youtube.com/@sousastep), and performs in a handful of ensembles such as the [Dingonek Street Band](https://www.dingonekbrass.com/), and [Sunnyside Electric](https://open.spotify.com/artist/1bx2iY7qBgQBiQmYCHRi1U/discography).
+John Baylies is a freelance tuba player and audio technician known for his experiments in electroacoustic improvisation. A native of North Andover, Massachusetts, John leads his band [Sousastep](https://www.youtube.com/@sousastep), develops a multi-effects rig called [SousaFX](https://sousastep.github.io/SousaFX-docs/en/master/index.html), and performs in a handful of ensembles such as the [Dingonek Street Band](https://www.dingonekbrass.com/).
 
 ![dingonek](../images/dingonek.jpg)
 

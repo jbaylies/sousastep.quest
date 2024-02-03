@@ -55,6 +55,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+
 /*
  * Wrapper
  *
@@ -206,6 +208,40 @@ a.sidebar-nav-item:focus {
   }
 }
 
+/* https://css-tricks.com/forums/topic/animated-cursor/ 
+@keyframes animate{
+  0%{ 
+    cursor: url("../../images/tuba/frames000.gif"), auto;
+  }
+  60%{ 
+    cursor: url("../../images/tuba/frames001.gif"), auto;
+  }
+  65%{ 
+    cursor: url("../../images/tuba/frames002.gif"), auto;
+  }
+  70%{ 
+    cursor: url("../../images/tuba/frames003.gif"), auto;
+  }
+  75%{ 
+    cursor: url("../../images/tuba/frames004.gif"), auto;
+  }
+  80%{ 
+    cursor: url("../../images/tuba/frames005.gif"), auto;
+  }
+  85%{ 
+    cursor: url("../../images/tuba/frames006.gif"), auto;
+  }
+  90%{ 
+    cursor: url("../../images/tuba/frames007.gif"), auto;
+  }
+  95%{ 
+    cursor: url("../../images/tuba/frames008.gif"), auto;
+  }
+  100%{ 
+    cursor: url("../../images/tuba/frames009.gif"), auto;
+  }
+} */
+
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
 .sidebar-checkbox {
   position: absolute;
@@ -267,40 +303,6 @@ html {
     cursor: url('../../images/tuba.gif'), pointer;
 }
 */
-
-/* https://css-tricks.com/forums/topic/animated-cursor/ */
-@keyframes animate{
-  0%{ 
-    cursor: url("../../images/tuba/frames000.gif"), auto;
-  }
-  60%{ 
-    cursor: url("../../images/tuba/frames001.gif"), auto;
-  }
-  65%{ 
-    cursor: url("../../images/tuba/frames002.gif"), auto;
-  }
-  70%{ 
-    cursor: url("../../images/tuba/frames003.gif"), auto;
-  }
-  75%{ 
-    cursor: url("../../images/tuba/frames004.gif"), auto;
-  }
-  80%{ 
-    cursor: url("../../images/tuba/frames005.gif"), auto;
-  }
-  85%{ 
-    cursor: url("../../images/tuba/frames006.gif"), auto;
-  }
-  90%{ 
-    cursor: url("../../images/tuba/frames007.gif"), auto;
-  }
-  95%{ 
-    cursor: url("../../images/tuba/frames008.gif"), auto;
-  }
-  100%{ 
-    cursor: url("../../images/tuba/frames009.gif"), auto;
-  }
-}
 
 /* https://www.w3schools.com/howto/howto_css_image_center.asp */
  .center {
