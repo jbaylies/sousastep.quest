@@ -23,7 +23,7 @@ In 2016, Erik and John founded [Nu Mouthpieces](https://www.kickstarter.com/proj
 
 ![nugent](../images/nugent.jpg)
 
-In 2017, John enrolled in Brooklyn College’s Sonic Arts program and developed a [live dubstep rig](https://github.com/jbaylies/sousastep#readme). John is currently working as a freelance tuba player, audio technician, recording engineer, and conference engineer in NYC.
+In 2017, John enrolled in Brooklyn College’s Sonic Arts program and developed a [live dubstep rig](https://github.com/jbaylies/sousastep#readme). John is currently working as a freelance tuba player, audio technician, recording engineer, and conference engineer in Massachusetts.
 
 ![metropolitubas](../images/metropolitubas.jpg)
 
