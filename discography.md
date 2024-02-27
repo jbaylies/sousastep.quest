@@ -5,6 +5,10 @@ title: Discography
 
 ## 2024
 
+Sousastep - Assorted Jams Volume 2 <br/>
+[Bandcamp](https://sousastep.bandcamp.com/album/assorted-jams-volume-2) <br/>
+![assorted-jams](../images/166jams230627.jpeg) <br/>
+
 Dingonek - Arwe <br/>
 [Bandcamp](https://dingonek.bandcamp.com/album/arwe), [Spotify](https://open.spotify.com/album/4u54WQQbTFW4FmRHanunui?si=-wm2jw7kQ7-3ftLqolkyHg) <br/>
 ![sousastep-EP](../images/arwe.jpg) <br/>
