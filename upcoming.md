@@ -3,15 +3,9 @@ layout: page
 title: Upcoming Shows
 ---
 
-## Dingonek mini-tour
+## Dingonek
 
-- [Friday, February 9th](https://fb.me/e/1zqlZB51W), 7:00 pm - 9:00 pm: The Otesaga Resort Hotel. 60 Lake St, Cooperstown, NY
-
-- Saturday, February 10th, 3:30 pm: Improvisation Masterclass at Ithaca College
-
-- [Saturday, February 10th](https://fb.me/e/3QeRxQhci), 10:30 pm - 1:30 am: The Upstairs. 210 W State St, Ithaca, NY
-
-- [Tuesday, February 13th](https://fb.me/e/1xn70GzM2), 7:30 pm - 9:45 pm: SOB's. 204 Varick St, New York, NY
+- [Tuesday, March 2nd](https://sobs.com/events/brass-funk-night-dingonek-street-band/), 6:30 pm - 9:45 pm: SOB's. 204 Varick St, New York, NY
 
 
 # Past Sousastep Shows
