@@ -3,10 +3,7 @@ layout: page
 title: Upcoming Shows
 ---
 
-## Dingonek
-
-- [Tuesday, March 2nd](https://sobs.com/events/brass-funk-night-dingonek-street-band/), 6:30 pm - 9:45 pm: SOB's. 204 Varick St, New York, NY
-
+Nothing currently scheduled IRL. [Follow me on Twitch to catch occasional livestreams.](https://www.twitch.tv/sousastep)
 
 # Past Sousastep Shows
 
