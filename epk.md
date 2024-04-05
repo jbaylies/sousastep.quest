@@ -29,7 +29,7 @@ One day I noticed a concert that used the term "sonic arts". I had never heard t
 
 My laptop was starting to show its age, so I was psyched when my brother, who had recently gotten hired at Eventide, brought me an H9000R to beta test. I quickly integrated it into my rig and started making algorithms with vsig and gen. Eventually I was hired, and gradually took on increasingly complicated programming tasks, but wasn't able to keep up because I spent all my free time working on Sousastep instead of studying, so I got laid off, and spent one more year gigging around NYC before moving back in with my folks in Massachusettes. 
 
-Living at home gave me space to develop Sousastep with all the knowledge I had gained in NYC, and I decided that the best course of action would be to make my rig as user-friendly as possible and release it under a Reaper-style nagware license. It's now available as [SousaFX](https://sousastep.github.io/SousaFX-docs/)! The launch video got over a million views, but there's a big step between making cute tiktok videos and having a killer hour-long live set. SousaFX has a bunch of features to be implemented and bugs to work out, but I'm driven by the belief that it could be as groundbreaking for tubists as the electric guitar was for guitarists.
+Living at home gave me space to develop Sousastep with all the knowledge I had gained in NYC, and I decided that the best course of action would be to make my rig as user-friendly as possible and release it under a Reaper-style nagware license. It's now available as [SousaFX](https://sousastep.github.io/SousaFX-docs/)! The launch video got over a million views, but there's a big step between making cute tiktok videos and having a killer hour-long live set. SousaFX has a bunch of features to be implemented and bugs to work out, and I'm driven by the belief that it could be as groundbreaking for tubists as the electric guitar was for guitarists.
 
 ## Videos
 
@@ -42,8 +42,7 @@ Living at home gave me space to develop Sousastep with all the knowledge I had g
 Self-titled EP:
 [Bandcamp](https://sousastep.bandcamp.com/album/sousastep-2), [Soundcloud](https://soundcloud.com/sousastep/sets/sousastep), [Spotify, etc.](https://ditto.fm/sousastep)<br/>
 
-Assorted Jams Volume 1:
-[Bandcamp](https://sousastep.bandcamp.com/album/sousastep-2), [Spotify, etc.](https://ditto.fm/sousastep-jams-volume-1)<br/><br/>
+Assorted Jams Volume 2: [Bandcamp](https://sousastep.bandcamp.com/album/assorted-jams-volume-2), [Spotify, etc.](https://ditto.fm/sousastep-jams-volume-2)<br/><br/>
 
 ## Press and testimonials
 
