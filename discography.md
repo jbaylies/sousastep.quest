@@ -6,7 +6,7 @@ title: Discography
 ## 2024
 
 Sousastep - Assorted Jams Volume 2 <br/>
-[Bandcamp](https://sousastep.bandcamp.com/album/assorted-jams-volume-2) <br/>, [Spotify, etc.](https://ditto.fm/sousastep-jams-volume-2)<br/> 
+[Bandcamp](https://sousastep.bandcamp.com/album/assorted-jams-volume-2), [Spotify, etc.](https://ditto.fm/sousastep-jams-volume-2)<br/> 
 ![assorted-jams](../images/166jams230627.jpeg) <br/>
 
 Dingonek - Arwe <br/>
@@ -33,11 +33,15 @@ Review by Elijah Shiffer in The New York City Jazz Record's [May 2023 Issue #253
     These musical parameters are remarkably consistent throughout, considering that these jams are, in fact, quite assorted. No fewer than 22 players appear on this album, in lineups ranging from two to seven instruments. Baylies is the only one heard on all 11 tracks, which were recorded between 2018 and 2022 and titled for their location and date. The leader’s brother David Baylies stands out as a particularly sensitive, expressive improviser. He plays trumpet on three tracks and guitar on the last, longest track, “Patchen ave: Oct. 9th, 2022”, a beautiful trio meditation with trumpeter Thomas abercrombie. “Mott St: Oct. 15th” features the late tenor saxophonist Richard Keene, a member of the deep downtown avant-garde, who passed away in 2021. Keene’s rich, heavy, fully-acoustic sound blends tastefully with the lines of fellow tenor saxophonist Uran Kamper.
 <br/>
     Assorted Jams is a unique, utterly contemporary addition to the world of the tuba. Baylies has explored the possibilities of his instrument with electronics as much as, if not more, than anyone else has. an album as striking as this has the potential to be the start of a new tuba-driven genre—perhaps named “sousastep” itself!
-<br/>
+<br/><br/>
 
 ## 2022
 
-### Sunnyside Electric
+Fruiting Body - Slip of the Tongue <br/>
+[Bandcamp](https://fruitbody.bandcamp.com/album/slip-of-the-tongue-ft-grammy) <br/>
+![sunnyside](../images/slipofthetongue.jpg)<br/>
+
+Sunnyside Electric -  <br/>
 [Naima 4 Namai](https://ditto.fm/naima-4-namai) <br/>
 [A Fool’s Errand](https://ditto.fm/a-fools-errand) <br/>
 [Enlightenment is a Destructive Process](https://open.spotify.com/album/3sYyBgozcyI2xNp4Xr1dPf) <br/>
