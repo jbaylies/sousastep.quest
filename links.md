@@ -19,7 +19,7 @@ title: Links
 
 - [discography](https://www.sousastep.quest/discography/)
 
-### Click Top-left Sidebar
+### Click top-left
 
    ↖ for biography, mailing list, press kit, etc.
 
