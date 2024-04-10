@@ -3,10 +3,6 @@ layout: page
 title: Links
 ---
 
-### Click Top-left Sidebar
-
-for biography, mailing list, resume, press kit, etc.
-
 ### Current Projects
 
 - [SousaFX: A multi-effects rig for tuba players!](https://sousastep.github.io/SousaFX-docs/)
@@ -22,6 +18,10 @@ for biography, mailing list, resume, press kit, etc.
 - [soundcloud](https://soundcloud.com/sousastep)
 
 - [discography](https://www.sousastep.quest/discography/)
+
+### Click Top-left Sidebar
+
+   ↖ for biography, mailing list, press kit, etc.
 
 ### Socials
 
@@ -50,7 +50,7 @@ for biography, mailing list, resume, press kit, etc.
 
 - [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
 
-- [nu mouthpieces](https://numouthpieces.com/)
+- [nu mouthpieces](https://web.archive.org/web/20230922050431/https://numouthpieces.com/)
 
 <a href="https://www.kicktraq.com/projects/1615538060/nu-mouthpieces-bridge-low-brass-and-didgeridoo-tec/" target="_blank"><img src="https://www.kicktraq.com/projects/1615538060/nu-mouthpieces-bridge-low-brass-and-didgeridoo-tec/minichart.png" alt="nu mouthpieces bridge low brass and didgeridoo techniques! -- Kicktraq Mini" title="nu mouthpieces bridge low brass and didgeridoo techniques! -- Kicktraq Mini"></a>
 
@@ -71,7 +71,3 @@ for biography, mailing list, resume, press kit, etc.
 ![woods](../images/woods.jpg)
 
 |
-
-### Moderates
-
-[r/tuba](https://www.reddit.com/r/Tuba/) & [tubenet](http://forums.chisham.com/index.php)
