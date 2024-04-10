@@ -14,12 +14,12 @@ title: Resume
         <tr class="c48">
             <td class="c35" colspan="1" rowspan="1">
                 <h1 class="c20" id="h.y7d3xdxnr44m"><span class="c39">Employment History</span></h1>
-                <h2 class="c7" id="h.7cszhsm3i6t5"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://www.sousastep.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463250800&amp;usg=AOvVaw2e6Z_Mqtyiq0x3aTedArfR">Self-Employed</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Freelance Musician</span></h2>
+                <h2 class="c7" id="h.7cszhsm3i6t5"><span class="c5 c4">Self-Employed</span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Freelance Musician</span></h2>
                 <h3 class="c15" id="h.pucb6tj0o6jb"><span class="c16 c8 c4">Summer 2014 &ndash; Present</span></h3>
                 <p class="c6"><span class="c0">Perform on tuba, sousaphone, and electronics (Ableton, Max/MSP) with various ensembles at festivals, parades, fundraisers, theaters, bars, weddings, memorial services, sporting events, and corporate events. See &#39;Professional Memberships&#39; for details.</span></p>
                 <h2 class="c7" id="h.9rbpwgpn3j70"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://www.conferencerental.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463260163&amp;usg=AOvVaw3h6DDwPou_3OeQYnKWwo_W">Conference Rentals</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Conference Engineer</span></h2>
-                <h3 class="c15" id="h.262odw6buu4n"><span class="c16 c8 c4">Summer 2018 - Present</span></h3>
-                <p class="c6"><span class="c0">Manage a Taiden conference system and translation booth for political and corporate events.</span></p>
+                <h3 class="c15" id="h.262odw6buu4n"><span class="c16 c8 c4">Summer 2018 - 2023</span></h3>
+                <p class="c6"><span class="c0">Manage a Taiden conference system and translation booth for political and corporate events including the United Nation's Seventh Replenishment, and the Lions Club's International Convention.</span></p>
                 <h2 class="c7" id="h.xb5naapspx52"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://www.eventideaudio.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463252711&amp;usg=AOvVaw1PUEE6dtCReQUEA39Xyp_f">Eventide</a></span><span class="c4">&nbsp;&mdash; </span><span class="c4 c5">Entry-Level Audio Support Technician</span></h2>
                 <h3 class="c15" id="h.yh4ec16l3mrl"><span class="c16 c8 c4">Feb. 2020 - Jun. 2022</span></h3>
                 <ul class="c10 lst-kix_axe8dgp1ohpw-0 start">
@@ -35,8 +35,8 @@ title: Resume
                 <p class="c6"><span class="c0">Assist sound engineer, performers, and composers with setup, breakdown, and troubleshooting of mics, cables, instruments, stands, chairs, etc. during soundchecks and shows.</span></p>
                 <h2 class="c7" id="h.4ip9dx67qbl0"><span class="c13"><a class="c2" href="https://www.google.com/url?q=http://www.bareopera.org/maria&amp;sa=D&amp;source=editors&amp;ust=1705988463258021&amp;usg=AOvVaw1g8iDpOnI6XRXaNn-Jq9tI">Bare Opera</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Sound Engineer</span></h2>
                 <h3 class="c15" id="h.so818dnm8ng7"><span>Spring 2019</span></h3>
-                <p class="c6"><span class="c0">Designed a sound reinforcement system with four condenser mics and five speakers for a production of Maria de Buenos Aires, and mixed it live with Ableton.</span></p>
-                <h2 class="c7" id="h.8gb5796t1fd"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://bandorecordings.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463258735&amp;usg=AOvVaw2VL9mKW-xkPDwg5RD_XDWY">Safe</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Sound Engineer</span></h2>
+                <p class="c6"><span class="c0">Designed and ran a sound reinforcement system for a production of Maria de Buenos Aires.</span></p>
+                <h2 class="c7" id="h.8gb5796t1fd"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://bandorecordings.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463258735&amp;usg=AOvVaw2VL9mKW-xkPDwg5RD_XDWY">Safe</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Playback Engineer</span></h2>
                 <h3 class="c15" id="h.x7lkcw1uc9cz"><span class="c16 c8 c4">Spring 2019</span></h3>
                 <p class="c6"><span class="c0">Mixed backing tracks with a live ensemble using Ableton during rehearsals and auditions. Arranged lead sheets for the ensemble. Cued entrances.</span></p>
                 <h2 class="c7" id="h.i0zu0wta6cx3"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://www.electrobrass.com/&amp;sa=D&amp;source=editors&amp;ust=1705988463259450&amp;usg=AOvVaw0hm3MhTRwgUpb7zMAw2OUM">Electrobrass Conference</a></span><span class="c4">&nbsp;&mdash; </span><span class="c5 c4">Coordinator</span></h2>
@@ -90,10 +90,10 @@ title: Resume
                 <p class="c1"><span class="c8 c4">2018 - Present</span></p>
                 <p class="c1"><span class="c13"><a class="c2" href="https://www.facebook.com/profile.php?id=100090373641452">Brass Monkeys</a></span></p>
                 <p class="c1 c19"><span class="c16 c8 c4"></span></p>
-                <p class="c1"><span class="c8 c4">2021 - Present</span></p>
+                <p class="c1"><span class="c8 c4">2021 - 2023</span></p>
                 <p class="c1"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://menwearingdresses.bandcamp.com/album/starlust&amp;sa=D&amp;source=editors&amp;ust=1705988463271968&amp;usg=AOvVaw1Fkp6Uore81AEq6A3yrvtN">Men Wearing Dresses</a></span></p>
                 <p class="c1 c19"><span class="c16 c8 c4"></span></p>
-                <p class="c1"><span class="c8 c4">2022 - Present</span></p>
+                <p class="c1"><span class="c8 c4">2022 - 2023</span></p>
                 <p class="c1"><span class="c13"><a class="c2" href="https://www.google.com/url?q=https://www.instagram.com/sunnysideelectric.nyc/&amp;sa=D&amp;source=editors&amp;ust=1705988463271369&amp;usg=AOvVaw1B7jP3epu3POFntlicaaix">Sunnyside Electric</a></span></p>
                 <p class="c1"><span class="c8 c4">2020</span></p>
                 <p class="c1"><span class="c13"><a class="c2" href="https://www.instagram.com/offthebarbrass/">Off The Bar Brass</a></span></p>

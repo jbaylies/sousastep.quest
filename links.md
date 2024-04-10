@@ -3,6 +3,10 @@ layout: page
 title: Links
 ---
 
+### Click Top-left Sidebar
+
+for biography, mailing list, resume, press kit, etc.
+
 ### Current Projects
 
 - [SousaFX: A multi-effects rig for tuba players!](https://sousastep.github.io/SousaFX-docs/)
@@ -65,3 +69,9 @@ title: Links
 - [How to use Didgeridoo Techniques on Low Brass Instruments](https://www.youtube.com/watch?v=RdcRZR2hH6Q)
 
 ![woods](../images/woods.jpg)
+
+|
+
+### Moderates
+
+[r/tuba](https://www.reddit.com/r/Tuba/) & [tubenet](http://forums.chisham.com/index.php)
