@@ -6,13 +6,14 @@ permalink:           pretty
 relative_permalinks: false
 
 # Setup
-title: John Baylies
+title: John Victor Baylies
 tagline: freelance musician & audio technician
 url: https://www.sousastep.quest
 paginate: 1
 baseurl: ""
 permalink: pretty
 highlighter: rouge
+google_analytics_id: G-RW8KNSLVVF
 
 # Gems
 plugins:
@@ -39,7 +40,7 @@ sass:
 
 # About/contact
 author:
-  name:              John Baylies
+  name:              John Victor Baylies
   url:               https://www.instagram.com/sousasteps/
   email:             
 

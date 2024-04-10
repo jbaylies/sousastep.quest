@@ -9,7 +9,6 @@ title: Links
 
 - [LED sousa bell: How it's made](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
 
-
 ### Music
 
 - [spotify](https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N)
@@ -22,21 +21,21 @@ title: Links
 
 ### Socials
 
-- [twitch](https://www.twitch.tv/sousastep)
-
 - [tiktok](https://tiktok.com/@sousastep)
 
 - [instagram](https://instagram.com/sousasteps)
 
 - [youtube](https://www.youtube.com/@sousastep)
 
-- [facebook](https://www.facebook.com/sousasteps)
+- [twitch](https://www.twitch.tv/sousastep)
+
+- [discord](https://discord.com/invite/feBwTZt84d)
 
 - [twitter](https://x.com/sousastep1)
 
 - [mastodon](https://mastodon.social/@sousastep)
 
-- [discord](https://discord.com/invite/feBwTZt84d)
+- [facebook](https://www.facebook.com/sousasteps)
 
 - [github](https://github.com/jbaylies)
 

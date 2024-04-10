@@ -60,11 +60,11 @@ Review of Assorted Jams Volume 1 by Elijah Shiffer in The New York City Jazz Rec
 
 ## Links
 
-[linktr.ee](https://linktr.ee/sousastep)<br/><br/>
+[Projects & Socials](https://www.sousastep.quest/links/)<br/><br/>
 
 ## Tour dates
 
-None scheduled.<br/><br/>
+[Upcoming Shows](https://www.sousastep.quest/upcoming/)<br/><br/>
 
 ## Contact details
 
