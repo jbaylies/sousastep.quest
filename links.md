@@ -3,12 +3,49 @@ layout: page
 title: Links
 ---
 
-### Current Projects & Socials
+### Current Projects
 
-- [linktr.ee](https://linktr.ee/sousastep)
+- [SousaFX: A multi-effects rig for tuba players!](https://sousastep.github.io/SousaFX-docs/)
+
+- [LED sousa bell: How it's made](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
+
+
+### Music
+
+- [spotify](https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N)
+
+- [bandcamp](https://sousastep.bandcamp.com/)
+
+- [soundcloud](https://soundcloud.com/sousastep)
+
+- [discography](https://www.sousastep.quest/discography/)
+
+### Socials
+
+- [twitch](https://www.twitch.tv/sousastep)
+
+- [tiktok](https://tiktok.com/@sousastep)
+
+- [instagram](https://instagram.com/sousasteps)
+
+- [youtube](https://www.youtube.com/@sousastep)
+
+- [facebook](https://www.facebook.com/sousasteps)
+
+- [twitter](https://x.com/sousastep1)
+
+- [mastodon](https://mastodon.social/@sousastep)
+
+- [discord](https://discord.com/invite/feBwTZt84d)
+
+- [github](https://github.com/jbaylies)
+
+- [last.fm](https://www.last.fm/user/jbaylies)
 
 
 ### Past Projects
+
+- [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
 
 - [nu mouthpieces](https://numouthpieces.com/)
 
@@ -26,32 +63,6 @@ title: Links
 
 - [Assorted Electrobrass Resources](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/resources/links.html)
 
-- [LED Sousaphone Bell Tutorial](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
-
 - [How to use Didgeridoo Techniques on Low Brass Instruments](https://www.youtube.com/watch?v=RdcRZR2hH6Q)
 
 ![woods](../images/woods.jpg)
-
-|
-
-### Creative Coding
-
-- [Extended Instruments in Max](https://cycling74.com/articles/extended-instruments-in-max)
-
-- [envelope-based crossfader](https://github.com/jbaylies/transient_crossfade)
-
-- [Risset Rhythm metronome, LFO, and wah](https://github.com/jbaylies/risset-rhythm-metro-and-wah)
-
-- [Guided Improvisation Station](https://github.com/jbaylies/guided-improvisation-station)
-
-- [Gray-Scott Reaction Diffusion algorithm overlaid onto the Julia Set fractal](https://github.com/jbaylies/JuliaGrayScott)
-
-|
-
-### Eventide H9000
-
-- [custom algorithms](https://github.com/jbaylies/sousastep-h9000-presets)
-
-- [gen~ on the H9000](https://cdn.eventideaudio.com/manuals/h9000/2.0/content/development/gen~.html)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/h_Fen5_co4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

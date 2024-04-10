@@ -68,6 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 .wrap {
   position: relative;
   width: 100%;
+  z-index: 0;
 }
 
 
@@ -159,9 +160,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
+  z-index: 1;
 
-  /* https://css-tricks.com/forums/topic/animated-cursor/ */
-  animation: animate 3s infinite;
+  /* https://css-tricks.com/forums/topic/animated-cursor/
+  animation: animate 3s infinite; */
 }
 @media (min-width: 30em) {
   .sidebar {
