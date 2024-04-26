@@ -13,7 +13,6 @@ paginate: 1
 baseurl: ""
 permalink: pretty
 highlighter: rouge
-google_analytics_id: 'G-RW8KNSLVVF'
 
 # Gems
 plugins:
