@@ -3,7 +3,9 @@ layout: page
 title: Upcoming Shows
 ---
 
-Nothing currently scheduled IRL. [Follow me on Twitch to catch occasional livestreams.](https://www.twitch.tv/sousastep)
+[![assorted-jams](../images/homie2024.jpg)](https://www.instagram.com/thehomiecollectivecampout/)
+
+[also follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
 
 # Past Sousastep Shows
 

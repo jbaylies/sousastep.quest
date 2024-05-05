@@ -21,7 +21,7 @@ title: Links
 
 ### Click top-left
 
-   ↖ for biography, mailing list, press kit, etc.
+   ↖ for [upcoming shows](https://www.sousastep.quest/upcoming/), [biography](https://www.sousastep.quest/biography/), [mailing list](https://www.sousastep.quest/mailinglist/), etc.
 
 ### Socials
 
