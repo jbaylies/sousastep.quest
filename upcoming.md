@@ -3,9 +3,10 @@ layout: page
 title: Upcoming Shows
 ---
 
-[![assorted-jams](../images/homie2024.jpg)](https://www.instagram.com/thehomiecollectivecampout/)
+- August 1st, 2am - 3am (technically Friday)! [https://tixco.co/p/EYDJWH86](https://tixco.co/p/EYDJWH86)
+[![homie2024](../images/homie2024.jpg)](https://tixco.co/p/EYDJWH86)
 
-[also follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
+- [also follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
 
 # Past Sousastep Shows
 

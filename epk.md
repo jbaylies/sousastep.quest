@@ -19,7 +19,7 @@ Sousastep was born of a desire to play live dubstep with a tuba. Taking inspirat
 
 ### Long
 
-In 2014, after graduating with a bachelors in classical tuba performance, I came to the conclusion that electronic music was way more fun and forward-thinking. That winter, I'd return from cheap brass band gigs to my trashy Allston apartment and lay on the couch, listening to Dubstep Allstars mixes, thinking "I could totally play this on tuba if I figure out how to connect my playstation controller to audio effects properly." 
+In 2014, after graduating with a bachelors in classical tuba performance, I came to the conclusion that electronic music was way more fun and forward-thinking. That winter, I'd return from cheap brass band gigs to my trashy Allston apartment and lay on the couch, listening to Dubstep Allstars mixes, thinking "I could totally play this on tuba if I can figure out how to connect my playstation controller to audio effects properly." 
 
 All the bands playing live dubstep at the time didn't sound that great to me, so I decided to give myself ten years to figure it out. I've never been the best at networking, and I don't enjoy teaching, so I knew I'd have to succeed through sheer innovation. If it didn't work out in a decade then at least I'd have the skills to switch to IT or something. 
 
@@ -27,7 +27,7 @@ I started learning Ableton and found an app called Controllermate that could tur
 
 One day I noticed a concert that used the term "sonic arts". I had never heard the term before, so I googled it and found out about Brooklyn College's Sonic Arts program, which has a class called Dynamic and Interactive Media Processing that's essentially a Max class. The program also provided 24/7 access to a hidden studio on a dilapidated part of campus, which was incredible. I spent a ton of time there studying Max, practicing tuba, performing in concerts, and organizing jams. 
 
-My laptop was starting to show its age, so I was psyched when my brother, who had recently gotten hired at Eventide, brought me an H9000R to beta test. I quickly integrated it into my rig and started making algorithms with vsig and gen. Eventually I was hired, and gradually took on increasingly complicated programming tasks, but wasn't able to keep up because I spent all my free time working on Sousastep instead of studying, so I got laid off, and spent one more year gigging around NYC before moving back in with my folks in Massachusettes. 
+My laptop was starting to show its age, so I was psyched when my brother, who had recently gotten hired at Eventide, brought me an H9000R to beta test. I quickly integrated it into my rig and started making algorithms with vsig and gen. Eventually I was hired, and gradually took on increasingly complicated programming tasks, but wasn't able to keep up because I spent all my free time working on Sousastep instead of studying c++, so I got laid off, and spent one more year gigging around NYC before moving back in with my folks in Massachusettes. 
 
 Living at home gave me space to develop Sousastep with all the knowledge I had gained in NYC, and I decided that the best course of action would be to make my rig as user-friendly as possible and release it under a Reaper-style nagware license. It's now available as [SousaFX](https://sousastep.github.io/SousaFX-docs/)!
 
@@ -35,7 +35,7 @@ Living at home gave me space to develop Sousastep with all the knowledge I had g
 
 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sousastep/video/7326008385885768990" data-video-id="7326008385885768990" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sousastep" href="https://www.tiktok.com/@sousastep?refer=embed">@sousastep</a> Sousastep presents: SousaFX! Now fully functional with no plugins, and free to try! Link&#39;s in my bio! <a title="sousaphone" target="_blank" href="https://www.tiktok.com/tag/sousaphone?refer=embed">#sousaphone</a> <a title="tuba" target="_blank" href="https://www.tiktok.com/tag/tuba?refer=embed">#tuba</a> <a title="electronicmusic" target="_blank" href="https://www.tiktok.com/tag/electronicmusic?refer=embed">#electronicmusic</a> <a title="dubstep" target="_blank" href="https://www.tiktok.com/tag/dubstep?refer=embed">#dubstep</a> <a title="euphonium" target="_blank" href="https://www.tiktok.com/tag/euphonium?refer=embed">#euphonium</a> <a target="_blank" title="♬ original sound - sousastep" href="https://www.tiktok.com/music/original-sound-7326008547338029854?refer=embed">♬ original sound - sousastep</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1fm8TK-Ez2M?si=G0RqsEV5UhM8ByUW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z9AXYswaOp8?si=xLmeogU5v2QFroul" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Music
 
@@ -66,6 +66,6 @@ Review of Assorted Jams Volume 1 by Elijah Shiffer in The New York City Jazz Rec
 
 [Upcoming Shows](https://www.sousastep.quest/upcoming/)<br/><br/>
 
-## Contact details
+## Contact
 
 sousastep@gmail.com<br/>
