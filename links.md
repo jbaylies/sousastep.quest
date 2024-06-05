@@ -3,6 +3,8 @@ layout: page
 title: Links
 ---
 
+- [upcoming shows](https://www.sousastep.quest/upcoming/) 
+
 ### Current Projects
 
 - [SousaFX: A multi-effects rig for tuba players!](https://sousastep.github.io/SousaFX-docs/)
@@ -19,9 +21,9 @@ title: Links
 
 - [discography](https://www.sousastep.quest/discography/)
 
-### Click top-left
+### Open top-left menu
 
-   ↖ for [upcoming shows](https://www.sousastep.quest/upcoming/), [biography](https://www.sousastep.quest/biography/), [mailing list](https://www.sousastep.quest/mailinglist/), etc.
+   ↖ for [biography](https://www.sousastep.quest/biography/), [mailing list](https://www.sousastep.quest/mailinglist/), etc.
 
 ### Socials
 
