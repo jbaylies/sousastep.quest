@@ -35,7 +35,7 @@ title: Links
 
 - [twitch](https://www.twitch.tv/sousastep)
 
-- [discord](https://discord.com/invite/feBwTZt84d)
+- [discord](https://discord.gg/JkSQzfZUdT)
 
 - [twitter](https://x.com/sousastep1)
 
