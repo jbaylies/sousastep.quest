@@ -7,9 +7,29 @@ title: Links
 
 ### Current Projects
 
-- [SousaFX: A multi-effects rig for tuba players!](https://sousastep.github.io/SousaFX-docs/)
+- [SousaFX: A multi-effects rig for tuba players](https://sousastep.github.io/SousaFX-docs/)
 
 - [LED sousa bell: How it's made](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
+
+### Socials
+
+- [youtube](https://www.youtube.com/@sousastep)
+
+- [twitch](https://www.twitch.tv/sousastep)
+
+- [instagram](https://instagram.com/sousasteps)
+
+- [tiktok](https://tiktok.com/@sousastep)
+
+- [discord](https://discord.gg/JkSQzfZUdT)
+
+- [github](https://github.com/jbaylies)
+
+- [last.fm](https://www.last.fm/user/jbaylies)
+
+- [twitter](https://x.com/sousastep1)
+
+- [facebook](https://www.facebook.com/sousasteps)
 
 ### Music
 
@@ -21,55 +41,16 @@ title: Links
 
 - [discography](https://www.sousastep.quest/discography/)
 
-### Open top-left menu
-
-   ↖ for [biography](https://www.sousastep.quest/biography/), [mailing list](https://www.sousastep.quest/mailinglist/), etc.
-
-### Socials
-
-- [tiktok](https://tiktok.com/@sousastep)
-
-- [instagram](https://instagram.com/sousasteps)
-
-- [youtube](https://www.youtube.com/@sousastep)
-
-- [twitch](https://www.twitch.tv/sousastep)
-
-- [discord](https://discord.gg/JkSQzfZUdT)
-
-- [twitter](https://x.com/sousastep1)
-
-- [mastodon](https://mastodon.social/@sousastep)
-
-- [facebook](https://www.facebook.com/sousasteps)
-
-- [github](https://github.com/jbaylies)
-
-- [last.fm](https://www.last.fm/user/jbaylies)
-
-
 ### Past Projects
-
-- [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
 
 - [nu mouthpieces](https://web.archive.org/web/20230922050431/https://numouthpieces.com/)
 
-<a href="https://www.kicktraq.com/projects/1615538060/nu-mouthpieces-bridge-low-brass-and-didgeridoo-tec/" target="_blank"><img src="https://www.kicktraq.com/projects/1615538060/nu-mouthpieces-bridge-low-brass-and-didgeridoo-tec/minichart.png" alt="nu mouthpieces bridge low brass and didgeridoo techniques! -- Kicktraq Mini" title="nu mouthpieces bridge low brass and didgeridoo techniques! -- Kicktraq Mini"></a>
-
-|
-
 - [2018 Electrobrass Conference](https://www.electrobrass.com/)
 
-![blur](../images/john1.jpg)
-
-|
+- [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
 
 ### Resources
 
-- [Assorted Electrobrass Resources](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/resources/links.html)
-
 - [How to use Didgeridoo Techniques on Low Brass Instruments](https://www.youtube.com/watch?v=RdcRZR2hH6Q)
 
-![woods](../images/woods.jpg)
-
-|
+- [Assorted Electrobrass Resources](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/resources/links.html)
