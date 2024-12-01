@@ -13,15 +13,19 @@ title: Links
 
 ### Socials
 
-- [youtube](https://www.youtube.com/@sousastep)
-
 - [twitch](https://www.twitch.tv/sousastep)
+
+- [youtube](https://www.youtube.com/@sousastep)
 
 - [instagram](https://instagram.com/sousasteps)
 
 - [tiktok](https://tiktok.com/@sousastep)
 
 - [discord](https://discord.gg/JkSQzfZUdT)
+
+- [bluesky](https://bsky.app/profile/sousastep.bsky.social)
+
+- [mastodon](https://mastodon.social/@sousastep)
 
 - [github](https://github.com/jbaylies)
 
