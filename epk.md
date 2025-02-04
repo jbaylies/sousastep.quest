@@ -11,6 +11,21 @@ title: Sousastep Press Kit
 
 <br/>
 
+## Press and testimonials
+
+Review of Assorted Jams Volume 1 by Elijah Shiffer in The New York City Jazz Record's [May 2023 Issue #253](http://nycjazzrecord.com/)
+<br/>
+
+    With an ensemble name like Sousastep, it’s no surprise that this music is somewhere on the outer fringes of jazz. The style is difficult to describe succinctly, except as a fascinating balance of experimentalism and accessibility. Assorted Jams is entirely improvised, but every track has an obvious key or mode, and most have a definite tempo with a danceable beat. It’s a refreshing reminder that free improvisation doesn’t require rhythmic or harmonic abstraction.
+<br/>
+    Sousastep is the brainchild of tuba player John Baylies, who has developed a distinctive vocabulary for his instrument that makes use of electronic processing and effects. Most of the other instruments heard on Assorted Jams are similarly processed. Together with the modal textures, the electronics create an immersive sonic palette. Each track is a little world to hang out in—perhaps a distant planet, as Baylies’ bass lines often pulsate psychedelically like some retro-futuristic idea of outer space.
+<br/>
+    These musical parameters are remarkably consistent throughout, considering that these jams are, in fact, quite assorted. No fewer than 22 players appear on this album, in lineups ranging from two to seven instruments. Baylies is the only one heard on all 11 tracks, which were recorded between 2018 and 2022 and titled for their location and date. The leader’s brother David Baylies stands out as a particularly sensitive, expressive improviser. He plays trumpet on three tracks and guitar on the last, longest track, “Patchen ave: Oct. 9th, 2022”, a beautiful trio meditation with trumpeter Thomas abercrombie. “Mott St: Oct. 15th” features the late tenor saxophonist Richard Keene, a member of the deep downtown avant-garde, who passed away in 2021. Keene’s rich, heavy, fully-acoustic sound blends tastefully with the lines of fellow tenor saxophonist Uran Kamper.
+<br/>
+    Assorted Jams is a unique, utterly contemporary addition to the world of the tuba. Baylies has explored the possibilities of his instrument with electronics as much as, if not more, than anyone else has. an album as striking as this has the potential to be the start of a new tuba-driven genre—perhaps named “sousastep” itself!
+<br/><br/>
+
+
 ## Biography
 
 ### Short
@@ -43,20 +58,6 @@ Self-titled EP:
 [Bandcamp](https://sousastep.bandcamp.com/album/sousastep-2), [Soundcloud](https://soundcloud.com/sousastep/sets/sousastep), [Spotify, etc.](https://ditto.fm/sousastep)<br/>
 
 Assorted Jams Volume 2: [Bandcamp](https://sousastep.bandcamp.com/album/assorted-jams-volume-2), [Spotify, etc.](https://ditto.fm/sousastep-jams-volume-2)<br/><br/>
-
-## Press and testimonials
-
-Review of Assorted Jams Volume 1 by Elijah Shiffer in The New York City Jazz Record's [May 2023 Issue #253](http://nycjazzrecord.com/)
-<br/>
-
-    With an ensemble name like Sousastep, it’s no surprise that this music is somewhere on the outer fringes of jazz. The style is difficult to describe succinctly, except as a fascinating balance of experimentalism and accessibility. Assorted Jams is entirely improvised, but every track has an obvious key or mode, and most have a definite tempo with a danceable beat. It’s a refreshing reminder that free improvisation doesn’t require rhythmic or harmonic abstraction.
-<br/>
-    Sousastep is the brainchild of tuba player John Baylies, who has developed a distinctive vocabulary for his instrument that makes use of electronic processing and effects. Most of the other instruments heard on Assorted Jams are similarly processed. Together with the modal textures, the electronics create an immersive sonic palette. Each track is a little world to hang out in—perhaps a distant planet, as Baylies’ bass lines often pulsate psychedelically like some retro-futuristic idea of outer space.
-<br/>
-    These musical parameters are remarkably consistent throughout, considering that these jams are, in fact, quite assorted. No fewer than 22 players appear on this album, in lineups ranging from two to seven instruments. Baylies is the only one heard on all 11 tracks, which were recorded between 2018 and 2022 and titled for their location and date. The leader’s brother David Baylies stands out as a particularly sensitive, expressive improviser. He plays trumpet on three tracks and guitar on the last, longest track, “Patchen ave: Oct. 9th, 2022”, a beautiful trio meditation with trumpeter Thomas abercrombie. “Mott St: Oct. 15th” features the late tenor saxophonist Richard Keene, a member of the deep downtown avant-garde, who passed away in 2021. Keene’s rich, heavy, fully-acoustic sound blends tastefully with the lines of fellow tenor saxophonist Uran Kamper.
-<br/>
-    Assorted Jams is a unique, utterly contemporary addition to the world of the tuba. Baylies has explored the possibilities of his instrument with electronics as much as, if not more, than anyone else has. an album as striking as this has the potential to be the start of a new tuba-driven genre—perhaps named “sousastep” itself!
-<br/><br/>
 
 ## Links
 
