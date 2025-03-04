@@ -3,7 +3,11 @@ layout: page
 title: Upcoming Shows
 ---
 
-nothing scheduled. [follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
+August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecollectivecampout), Russell MA
+
+July 17 - 19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
+
+[Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
 
 # Past Sousastep Shows
 
