@@ -3,9 +3,11 @@ layout: page
 title: Upcoming Shows
 ---
 
-August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecollectivecampout), Russell MA
-
 July 17 - 19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
+
+July 22 - 27: [Big Dub](https://bigdubfestival.com/info/), Artemas PA
+
+August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecollectivecampout), Russell MA
 
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)
 
