@@ -3,9 +3,11 @@ layout: page
 title: Upcoming Shows
 ---
 
-July 17 - 19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
+July 16-19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
+[![secretdreams2025](../images/secretdreams2025.webp)](https://www.secretdreamsfest.com/)
 
-July 22 - 27: [Big Dub](https://bigdubfestival.com/info/), Artemas PA
+
+July 22-27: [Big Dub](https://bigdubfestival.com/info/), Artemas PA
 
 August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecollectivecampout), Russell MA
 
