@@ -3,9 +3,13 @@ layout: page
 title: Upcoming Shows
 ---
 
+May 17: [Candia Road Brewing Co.](https://www.instagram.com/candiaroadbrewingco/), Manchester NH
+[![corpus_candia_250517](../images/corpus_candia_250517.webp)](https://www.instagram.com/candiaroadbrewingco/)
+
+June 14: [Down County Jump Festival](https://rblodge.com/event-calendar/2025/down-county-jump-summer-music-festival), Sheffield MA ([Dingonek](https://www.dingonekbrass.com/))
+
 July 16-19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
 [![secretdreams2025](../images/secretdreams2025.webp)](https://www.secretdreamsfest.com/)
-
 
 July 22-27: [Big Dub](https://bigdubfestival.com/info/), Artemas PA
 
