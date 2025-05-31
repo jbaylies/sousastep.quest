@@ -3,9 +3,6 @@ layout: page
 title: Upcoming Shows
 ---
 
-May 17: [Candia Road Brewing Co.](https://www.instagram.com/candiaroadbrewingco/), Manchester NH
-[![corpus_candia_250517](../images/corpus_candia_250517.webp)](https://www.instagram.com/candiaroadbrewingco/)
-
 June 14: [Down County Jump Festival](https://rblodge.com/event-calendar/2025/down-county-jump-summer-music-festival), Sheffield MA ([Dingonek](https://www.dingonekbrass.com/))
 
 July 16-19: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
@@ -19,10 +16,19 @@ August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecol
 
 # Past Sousastep Shows
 
+## 2025
+
+May 28: [Max Discord Office Hours](https://www.youtube.com/watch?v=5GmZ5qkEzy0)
+[![max_discord_office_hours_250528](../images/max_discord_office_hours_250528.webp)](https://www.youtube.com/watch?v=3pq6gp0t0gE)
+
+May 17: [Candia Road Brewing Co.](https://www.instagram.com/candiaroadbrewingco/), Manchester NH
+[![corpus_candia_250517](../images/corpus_candia_250517.webp)](https://www.youtube.com/watch?v=3pq6gp0t0gE)
+    Scott Chamberlin - sax<br>
+
 ## 2024
 
-Aug 1: Homie Collective Campout, Wubby Woodz<br>
-[![homie2024](../images/homie2024.jpg)](https://www.instagram.com/p/C-x2k6xuKc5/)
+Aug 1: [Homie Collective Campout](https://www.instagram.com/p/C-x2k6xuKc5/), Wubby Woodz<br>
+[![homie2024](../images/homie2024.jpg)](https://www.youtube.com/watch?v=y41mzf06o4c)
 
 ## 2023
 
