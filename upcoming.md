@@ -19,7 +19,7 @@ August 21 - 24: [Homie Collective Campout](https://www.instagram.com/thehomiecol
 ## 2025
 
 May 28: [Max Discord Office Hours](https://www.youtube.com/watch?v=5GmZ5qkEzy0)
-[![max_discord_office_hours_250528](../images/max_discord_office_hours_250528.webp)](https://www.youtube.com/watch?v=3pq6gp0t0gE)
+[![max_discord_office_hours_250528](../images/max_discord_office_hours_250528.webp)](https://www.youtube.com/watch?v=5GmZ5qkEzy0)
 
 May 17: [Candia Road Brewing Co.](https://www.instagram.com/candiaroadbrewingco/), Manchester NH
 [![corpus_candia_250517](../images/corpus_candia_250517.webp)](https://www.youtube.com/watch?v=3pq6gp0t0gE)
