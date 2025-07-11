@@ -4,12 +4,12 @@ title: Upcoming Shows
 ---
 
 July 20, 12:30 am: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
-[![secretdreams2025](../images/secretdreams2025.webp)](https://www.secretdreamsfest.com/)<br>
+[![secretdreams2025](../images/secretdreams2025.webp)](https://www.secretdreamsfest.com/)
 
 July 23-25: [Big Dub](https://bigdubfestival.com/info/), Artemas PA<br>
 
 August 21 - 24: [Homie Collective Campout](https://homiecampout.com/), Russell MA.
-Buy tickets thru this link to support me: https://www.ticketfairy.com/r/37913/2021739
+Buy tickets thru this link to support me: [https://www.ticketfairy.com/r/37913/2021739](https://www.ticketfairy.com/r/37913/2021739)
 [![homiecampout2025](../images/homiecampout2025.webp)](https://www.ticketfairy.com/r/37913/2021739)<br>
 
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
