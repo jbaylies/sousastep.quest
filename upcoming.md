@@ -3,20 +3,21 @@ layout: page
 title: Upcoming Shows
 ---
 
-July 20, 12:30 am: [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
-[![secretdreams2025](../images/secretdreams2025.webp)](https://www.secretdreamsfest.com/)
-
-July 23-25: [Big Dub](https://bigdubfestival.com/info/), Artemas PA<br>
-
 August 21 - 24: [Homie Collective Campout](https://homiecampout.com/), Russell MA.
 Buy tickets thru this link to support me: [https://www.ticketfairy.com/r/37913/2021739](https://www.ticketfairy.com/r/37913/2021739)
 [![homiecampout2025](../images/homiecampout2025.webp)](https://www.ticketfairy.com/r/37913/2021739)<br>
+
+August 30: [Hex House](https://www.instagram.com/hexh0use/), East Williamsburg NY. w/ [David Baylies](https://www.instagram.com/schema_tuna/) on trumpet+electronics, and [Luke Glavanovits](https://www.instagram.com/glavanovibes/) on vibraphone. Opening for [PlexusPlay](https://www.instagram.com/plexusplay/)
 
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
 # Past Sousastep Shows
 
 ## 2025
+
+July 23-25: [Big Dub](https://bigdubfestival.com/info/) @ Frick Frack, Artemas PA<br>
+
+July 20, 12:30 am (phantasmagoria rain cancellation): [Secret Dreams Festival](https://www.secretdreamsfest.com/), Thornville OH
 
 May 28: [Max Discord Office Hours](https://www.youtube.com/watch?v=5GmZ5qkEzy0)
 [![max_discord_office_hours_250528](../images/max_discord_office_hours_250528.webp)](https://www.youtube.com/watch?v=5GmZ5qkEzy0)<br>
