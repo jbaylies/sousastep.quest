@@ -3,22 +3,21 @@ layout: page
 title: Upcoming Shows
 ---
 
-August 23: [Homie Collective Campout](https://homiecampout.com/), Russell MA.
-Buy tickets thru this link to support me! [https://www.ticketfairy.com/r/37913/2021739](https://www.ticketfairy.com/r/37913/2021739)
-[![homiecampout2025](../images/homiecampout2025.webp)](https://www.ticketfairy.com/r/37913/2021739)<br>
-
-August 30: [Hex House](https://www.instagram.com/hexh0use/), East Williamsburg NY. w/ [David Baylies](https://www.instagram.com/schema_tuna/) on trumpet+electronics, and [Luke Glavanovits](https://www.instagram.com/glavanovibes/) on vibraphone
-[![250830_HexHouse](../images/250830_HexHouse.webp)](https://www.plexusplay.com/shows/ne1rkcxj6al9mbtssgs4f0paegspqh)<br>
-
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
 # Past Sousastep Shows
 
 ## 2025
 
-July 23, 25: [Big Dub](https://bigdubfestival.com/info/) @ [Frick Frack](https://www.instagram.com/frickfrackblackjack/)<br>
+August 30: [Hex House](https://www.youtube.com/watch?v=iuRZM9S3GC4&t=23m02s)<br>
+    David Baylies - trumpet + fx<br>
+    Luke Glavanovits - vibraphone<br>
 
-July 20: [Secret Dreams Festival](https://www.secretdreamsfest.com/) @ [geovisual_creations'](https://www.instagram.com/geovisual_creations/) dome<br>
+August 23: [Homie Collective Campout](https://www.tiktok.com/@sousastep/video/7542257234382687543)<br>
+
+July 23, 25: [Big Dub](https://bigdubfestival.com/info/) at [Frick Frack](https://www.instagram.com/frickfrackblackjack/)<br>
+
+July 20: [Secret Dreams](https://www.secretdreamsfest.com/) at [geovisual_creations'](https://www.instagram.com/geovisual_creations/) dome<br>
     logselectricspacewhistle - EWI<br>
 
 May 28: [Max Discord Office Hours](https://www.youtube.com/watch?v=5GmZ5qkEzy0)
@@ -28,7 +27,7 @@ May 17: [Candia Road Brewing Co.](https://www.youtube.com/watch?v=3pq6gp0t0gE)<b
 
 ## 2024
 
-Aug 1: [Homie Collective Campout](https://www.youtube.com/watch?v=y41mzf06o4c) @ Wubby Woodz<br>
+Aug 1: [Homie Collective Campout](https://www.youtube.com/watch?v=y41mzf06o4c)<br>
 
 ## 2023
 
