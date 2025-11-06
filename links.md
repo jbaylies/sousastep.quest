@@ -7,9 +7,9 @@ title: Links
 
 ### Current Projects
 
-- [SousaFX: software that helps tubas play dubstep](https://sousastep.github.io/SousaFX-docs/)
+- [SousaFX: software for playing dubstep with a tuba using a game controller](https://sousastep.github.io/SousaFX-rnbo-docs/)
 
-- [LED sousa bell: How it's made](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
+- [LED sousa bell: how it's made](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/tutorials/LED-sousa-bell.html)
 
 ### Music
 
