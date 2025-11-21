@@ -3,11 +3,18 @@ layout: page
 title: Upcoming Shows
 ---
 
+## 2026
+
+March 6 - 8: Presentation @ [Northeast Regional Tuba Euphonium Conference](https://www.nertec2026.com/)
+
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
 # Past Sousastep Shows
 
 ## 2025
+
+October 4: Lowell Halloween Housewarming<br>
+    Josiah Reibstein - tuba & trombone<br>
 
 August 30: [Hex House](https://www.youtube.com/watch?v=iuRZM9S3GC4&t=23m02s)<br>
     David Baylies - trumpet + fx<br>
