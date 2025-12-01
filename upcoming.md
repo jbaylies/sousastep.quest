@@ -3,10 +3,6 @@ layout: page
 title: Upcoming Shows
 ---
 
-## 2026
-
-March 6 - 8: Presentation @ [Northeast Regional Tuba Euphonium Conference](https://www.nertec2026.com/)
-
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
 # Past Sousastep Shows
