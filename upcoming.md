@@ -3,6 +3,8 @@ layout: page
 title: Upcoming Shows
 ---
 
+July 21 - 26: I'll be wandering around with the mobile rig after dark at [Big Dub](https://bigdubfestival.com/)! <br>
+
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
 # Past Sousastep Shows
