@@ -3,7 +3,9 @@ layout: page
 title: Upcoming Shows
 ---
 
-July 21 - 26: I'll be wandering around with the mobile rig after dark at [Big Dub](https://bigdubfestival.com/)! <br>
+September 4 - 6: [Secret Dreams](https://www.secretdreamsfest.com/), OH
+
+July 21 - 26: [Big Dub](https://bigdubfestival.com/), PA<br>
 
 [Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
 
