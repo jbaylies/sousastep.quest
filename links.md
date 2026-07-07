@@ -58,3 +58,6 @@ title: Links
 - [How to use Didgeridoo Techniques on Low Brass Instruments](https://www.youtube.com/watch?v=RdcRZR2hH6Q)
 
 - [Assorted Electrobrass Resources](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/resources/links.html)
+
+<img src="{{ '/images/uran.jpg' | relative_url }}" class="hero-image">
+

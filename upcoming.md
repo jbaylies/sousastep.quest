@@ -7,7 +7,7 @@ September 4 - 6: [Secret Dreams](https://www.secretdreamsfest.com/), OH
 
 July 21 - 26: [Big Dub](https://bigdubfestival.com/), PA<br>
 
-[Follow on Twitch for occasional livestreams!](https://www.twitch.tv/sousastep)<br>
+<img src="{{ '/images/homie2024crop.webp' | relative_url }}" alt="Sousastep performing live with projection mapping at Homie 2024" class="hero-image">
 
 # Past Sousastep Shows
 

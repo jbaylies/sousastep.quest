@@ -622,3 +622,19 @@ iframe[src*=youtube] {
                     max-width: 100%;
                     padding-bottom: 10px;
                 }
+
+/*
+ * Hero image
+ *
+ * Break out of the constrained `.container` (max-width: 38rem) so the image
+ * spans the full viewport width regardless of screen size. The body already
+ * has `overflow-x: hidden`, so no horizontal scrollbar is introduced.
+ */
+.hero-image {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
