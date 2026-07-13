@@ -45,19 +45,20 @@ title: Links
 
 - [facebook](https://www.facebook.com/sousasteps)
 
-### Past Projects
-
-- [nu mouthpieces](https://web.archive.org/web/20230922050431/https://numouthpieces.com/)
-
-- [2018 Electrobrass Conference](https://www.electrobrass.com/)
-
-- [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
-
 ### Resources
+
+- [Tuba Scale Pattern Fingerings Generator](https://jbaylies.github.io/tuba_scale_generator/)
 
 - [How to use Didgeridoo Techniques on Low Brass Instruments](https://www.youtube.com/watch?v=RdcRZR2hH6Q)
 
 - [Assorted Electrobrass Resources](https://jbaylies.github.io/Electrobrass_Encyclopedia/content/resources/links.html)
 
-<img src="{{ '/images/uran.jpg' | relative_url }}" class="hero-image">
+### Past Projects
 
+- [Extended Instruments Patch Commissioned by Cycling '74](https://cycling74.com/articles/extended-instruments-in-max)
+
+- [nu mouthpieces](https://web.archive.org/web/20230922050431/https://numouthpieces.com/)
+
+- [2018 Electrobrass Conference](https://www.electrobrass.com/)
+
+<img src="{{ '/images/uran.jpg' | relative_url }}" class="hero-image">
