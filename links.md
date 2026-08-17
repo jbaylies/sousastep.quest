@@ -59,6 +59,6 @@ title: Links
 
 - [nu mouthpieces](https://web.archive.org/web/20230922050431/https://numouthpieces.com/)
 
-- [2018 Electrobrass Conference](https://www.electrobrass.com/)
+- [2018 Electrobrass Conference](https://web.archive.org/web/20250318033411/https://www.electrobrass.com/)
 
 <img src="{{ '/images/uran.jpg' | relative_url }}" class="hero-image">

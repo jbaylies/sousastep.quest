@@ -5,11 +5,14 @@ title: Upcoming Shows
 
 September 4 - 6: [Secret Dreams](https://www.secretdreamsfest.com/), OH
 
-July 21 - 26: [Big Dub](https://bigdubfestival.com/), PA<br>
-
 <img src="{{ '/images/homie2024crop.webp' | relative_url }}" alt="Sousastep performing live with projection mapping at Homie 2024" class="hero-image">
 
 # Past Sousastep Shows
+
+## 2026
+
+July 21 - 26: [Big Dub](https://www.youtube.com/shorts/y-0XnNt5qKQ)<br>
+    1st wandering set
 
 ## 2025
 
