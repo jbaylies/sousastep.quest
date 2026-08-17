@@ -18,7 +18,7 @@ title: Mailing List
 
         h3 {
             font-size: 24px;
-            color: #333;
+            color: #e4e7f0;
         }
 
         p {
@@ -31,10 +31,15 @@ title: Mailing List
             padding: 10px;
             box-sizing: border-box;
             font-size: 16px;
+            background-color: #171c26;
+            color: #cdd1dc;
+            border: 1px solid #333d52;
+            border-radius: 4px;
         }
 
         input[type="checkbox"] {
             margin-right: 5px;
+            accent-color: #66a8e4;
         }
 
         input[type="submit"] {

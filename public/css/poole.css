@@ -52,6 +52,11 @@ html {
   font-size: 16px;
   line-height: 1.5;
 }
+
+/* Dark mode: render native controls, scrollbars, etc. with dark chrome */
+:root {
+  color-scheme: dark;
+}
 @media (min-width: 38em) {
   html {
     font-size: 20px;
@@ -59,15 +64,15 @@ html {
 }
 
 body {
-  color: #515151;
-  background-color: #ecebf3; /* #F7D4D4; */
+  color: #cdd1dc;
+  background-color: #151b26; /* was #ecebf3; #F7D4D4; */
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  color: #7fd0c0; /* was #268bd2; then #5d9ede */
   text-decoration: none;
 }
 a strong {
@@ -84,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #313131;
+  color: #eef0f7;
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -110,7 +115,7 @@ p {
 }
 
 strong {
-  color: #303030;
+  color: #e4e7f0;
 }
 
 
@@ -132,19 +137,19 @@ hr {
   position: relative;
   margin: 1.5rem 0;
   border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #2e3547;
+  border-bottom: 1px solid #0b0e15;
 }
 
 abbr {
   font-size: 85%;
   font-weight: bold;
-  color: #555;
+  color: #aab0c0;
   text-transform: uppercase;
 }
 abbr[title] {
   cursor: help;
-  border-bottom: 1px dotted #e5e5e5;
+  border-bottom: 1px dotted #3a4260;
 }
 
 /* Code */
@@ -155,8 +160,8 @@ pre {
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
+  color: #e07a86;
+  background-color: #1a212e;
   border-radius: 3px;
 }
 pre {
@@ -170,7 +175,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #1a212e;
 }
 pre code {
   padding: 0;
@@ -214,8 +219,8 @@ pre code {
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  color: #b6bccb;
+  border-left: .25rem solid #39425c;
 }
 blockquote p:last-child {
   margin-bottom: 0;
@@ -238,17 +243,17 @@ img {
 table {
   margin-bottom: 1rem;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #2e3547;
   border-collapse: collapse;
 }
 td,
 th {
   padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #2e3547;
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #1b212e;
 }
 
 
@@ -274,8 +279,8 @@ tbody tr:nth-child(odd) th {
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: #b0b6c5;
+  background-color: #1b212e;
 }
 
 
@@ -308,15 +313,15 @@ tbody tr:nth-child(odd) th {
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
-  color: #505050;
+  color: #d6dae5;
 }
 .masthead-title a {
-  color: #505050;
+  color: #d6dae5;
 }
 .masthead-title small {
   font-size: 75%;
   font-weight: 400;
-  color: #c0c0c0;
+  color: #7e8596;
   letter-spacing: 0;
 }
 
@@ -337,7 +342,7 @@ tbody tr:nth-child(odd) th {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #e8ebf5;
 }
 .page-title,
 .post-title {
@@ -349,14 +354,14 @@ tbody tr:nth-child(odd) th {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  color: #8a90a3;
 }
 
 /* Related posts */
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #2e3547;
 }
 .related-posts {
   padding-left: 0;
@@ -367,10 +372,10 @@ tbody tr:nth-child(odd) th {
 }
 .related-posts li small {
   font-size: 75%;
-  color: #999;
+  color: #83899c;
 }
 .related-posts li a:hover {
-  color: #268bd2;
+  color: #7fd0c0;
   text-decoration: none;
 }
 .related-posts li a:hover small {
@@ -390,7 +395,7 @@ tbody tr:nth-child(odd) th {
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  color: #7c8396;
   text-align: center;
 }
 
@@ -398,7 +403,7 @@ tbody tr:nth-child(odd) th {
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid #2e3547;
 }
 .pagination-item:first-child {
   margin-bottom: -1px;
@@ -406,7 +411,7 @@ tbody tr:nth-child(odd) th {
 
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
-  background-color: #f5f5f5;
+  background-color: #1f2533;
 }
 
 @media (min-width: 30em) {
