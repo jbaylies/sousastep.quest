@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Links
+background_shader: true
 ---
 
 - [upcoming shows](https://www.sousastep.quest/upcoming/) 

@@ -3,11 +3,15 @@
 
   {% include head.html %}
 
-  <script type="text/javascript" src="https://unpkg.com/shadify@1.0.1/lib/Shadify.js"></script>
-
   <body class="theme-base-0d sidebar-overlay">
 
     {% include sidebar.html %}
+
+    {% if page.background_shader %}
+    <!-- Subtle animated background (SousaVFX phyllotaxis voronoi). Fixed, behind content. -->
+    <script type="text/javascript" src="https://unpkg.com/shadify@1.0.1/lib/Shadify.js"></script>
+    <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-speed="0.5" data-shader-quality="2.0" data-shader-z-index="-1"></div>
+    {% endif %}
 
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->

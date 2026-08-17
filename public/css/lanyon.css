@@ -157,7 +157,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
-  background-color: #161c28; /* was #202020; shader draws over this */
+  background-color: #151b26; /* solid fallback (no backdrop-filter support) */
+  background-color: rgba(21, 27, 38, .72); /* frosted: blurs whatever is behind */
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
   z-index: 1;
@@ -559,7 +562,9 @@ a.pagination-item:hover {
 }
 
 /* Blue */
-.theme-base-0d .sidebar,
+/* Note: the drawer itself is intentionally left out of the theme accent — it
+   stays a dark frosted panel (see the .sidebar rule) while the accent color
+   is kept for the toggle and links. */
 .theme-base-0d .sidebar-toggle:active,
 .theme-base-0d #sidebar-checkbox:checked ~ .sidebar-toggle {
   background-color: #7fd0c0; /* was #6975c3; #8a94de; */
@@ -626,6 +631,19 @@ iframe[src*=youtube] {
                     max-width: 100%;
                     padding-bottom: 10px;
                 }
+
+/*
+ * Page background shader
+ *
+ * Host for a shadify canvas behind the content (see links page).
+ */
+
+.vfx-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
 
 /*
  * Hero image
