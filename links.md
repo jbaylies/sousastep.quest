@@ -13,37 +13,37 @@ title: Links
 
 ### Music
 
-- [soundcloud](https://soundcloud.com/sousastep)
+- <a href="https://soundcloud.com/sousastep"><img class="social-icon" src="{{ '/images/social/soundcloud.svg' | relative_url }}" alt="">soundcloud</a>
 
-- [bandcamp](https://sousastep.bandcamp.com/)
+- <a href="https://sousastep.bandcamp.com/"><img class="social-icon" src="{{ '/images/social/bandcamp.svg' | relative_url }}" alt="">bandcamp</a>
 
-- [spotify](https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N)
+- <a href="https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N"><img class="social-icon" src="{{ '/images/social/spotify.svg' | relative_url }}" alt="">spotify</a>
 
 - [discography](https://www.sousastep.quest/discography/)
 
 ### Socials
 
-- [youtube](https://www.youtube.com/@sousastep)
+- <a href="https://www.youtube.com/@sousastep"><img class="social-icon" src="{{ '/images/social/youtube.svg' | relative_url }}" alt="">youtube</a>
 
-- [instagram](https://instagram.com/sousasteps)
+- <a href="https://instagram.com/sousasteps"><img class="social-icon" src="{{ '/images/social/instagram.svg' | relative_url }}" alt="">instagram</a>
 
-- [tiktok](https://tiktok.com/@sousastep)
+- <a href="https://tiktok.com/@sousastep"><img class="social-icon" src="{{ '/images/social/tiktok.svg' | relative_url }}" alt="">tiktok</a>
 
-- [twitch](https://www.twitch.tv/sousastep)
+- <a href="https://www.twitch.tv/sousastep"><img class="social-icon" src="{{ '/images/social/twitch.svg' | relative_url }}" alt="">twitch</a>
 
-- [discord](https://discord.gg/JkSQzfZUdT)
+- <a href="https://discord.gg/JkSQzfZUdT"><img class="social-icon" src="{{ '/images/social/discord.svg' | relative_url }}" alt="">discord</a>
 
-- [bluesky](https://bsky.app/profile/sousastep.bsky.social)
+- <a href="https://bsky.app/profile/sousastep.bsky.social"><img class="social-icon" src="{{ '/images/social/bluesky.svg' | relative_url }}" alt="">bluesky</a>
 
-- [mastodon](https://mastodon.social/@sousastep)
+- <a href="https://mastodon.social/@sousastep"><img class="social-icon" src="{{ '/images/social/mastodon.svg' | relative_url }}" alt="">mastodon</a>
 
-- [github](https://github.com/jbaylies)
+- <a href="https://github.com/jbaylies"><img class="social-icon" src="{{ '/images/social/github.svg' | relative_url }}" alt="">github</a>
 
-- [last.fm](https://www.last.fm/user/jbaylies)
+- <a href="https://www.last.fm/user/jbaylies"><img class="social-icon" src="{{ '/images/social/lastdotfm.svg' | relative_url }}" alt="">last.fm</a>
 
-- [twitter](https://x.com/sousastep1)
+- <a href="https://x.com/sousastep1"><img class="social-icon" src="{{ '/images/social/x.svg' | relative_url }}" alt="">twitter</a>
 
-- [facebook](https://www.facebook.com/sousasteps)
+- <a href="https://www.facebook.com/sousasteps"><img class="social-icon" src="{{ '/images/social/facebook.svg' | relative_url }}" alt="">facebook</a>
 
 ### Resources
 
@@ -61,4 +61,4 @@ title: Links
 
 - [2018 Electrobrass Conference](https://web.archive.org/web/20250318033411/https://www.electrobrass.com/)
 
-<img src="{{ '/images/uran.jpg' | relative_url }}" class="hero-image">
+<img src="{{ '/images/uran.jpg' | relative_url }}" alt="Sousastep performing live" class="hero-image" loading="lazy">

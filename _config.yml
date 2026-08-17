@@ -8,11 +8,19 @@ relative_permalinks: false
 # Setup
 title: John Baylies
 tagline: freelance musician & audio technician
+description: "John Baylies — freelance musician & audio technician. Dubstep on sousaphone with a game controller: shows, recordings, and the SousaFX software."
 url: https://www.sousastep.quest
 paginate: 1
 baseurl: ""
 permalink: pretty
 highlighter: rouge
+
+# Default social/SEO card image for all pages and posts (jekyll-seo-tag)
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/sousastep-og.png
 
 # Gems
 plugins:

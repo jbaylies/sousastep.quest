@@ -641,4 +641,50 @@ iframe[src*=youtube] {
   height: auto;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  transition: transform .6s ease;
+}
+.hero-image:hover {
+  transform: scale(1.015);
+}
+
+/*
+ * Social icons
+ *
+ * Small inline brand icons used on the links page. Overrides the generic
+ * block-image styles from poole.css.
+ */
+
+.social-icon {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin: 0 .4rem 0 0;
+  vertical-align: -.18em;
+  border-radius: 0;
+  opacity: .8;
+}
+
+a:hover > .social-icon {
+  opacity: 1;
+}
+
+/*
+ * Accessibility
+ *
+ * Visible keyboard focus and reduced-motion support.
+ */
+
+:focus-visible {
+  outline: 2px solid #7fd0c0;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }

@@ -5,7 +5,7 @@ title: Upcoming Shows
 
 September 4 - 6: [Secret Dreams](https://www.secretdreamsfest.com/), OH
 
-<img src="{{ '/images/homie2024crop.webp' | relative_url }}" alt="Sousastep performing live with projection mapping at Homie 2024" class="hero-image">
+<img src="{{ '/images/homie2024crop.webp' | relative_url }}" alt="Sousastep performing live with projection mapping at Homie 2024" class="hero-image" loading="lazy">
 
 # Past Sousastep Shows
 

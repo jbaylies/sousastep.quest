@@ -74,14 +74,33 @@ body {
 a {
   color: #7fd0c0; /* was #268bd2; then #5d9ede */
   text-decoration: none;
+  position: relative;
 }
 a strong {
   color: inherit;
 }
-/* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* Animated underline: slides in from the left on hover/focus.
+   Sidebar and pagination links have their own hover treatments. */
+a:not(.sidebar-nav-item):not(.pagination-item)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .25s ease;
+}
+a:not(.sidebar-nav-item):not(.pagination-item):hover::after,
+a:not(.sidebar-nav-item):not(.pagination-item):focus::after {
+  transform: scaleX(1);
 }
 
 /* Headings */
