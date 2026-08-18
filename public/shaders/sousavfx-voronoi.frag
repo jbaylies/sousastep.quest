@@ -42,11 +42,17 @@ vec3 palette(float t) {
 }
 
 // Triangular fade through the lit part of a division (divisionWidth = 126/253)
+float smootherstep(float x) {
+  x = clamp(x, 0.0, 1.0);
+  return x * x * x * (x * (x * 6.0 - 15.0) + 10.0);
+}
+
 float divisionMask(float p) {
   const float width = 0.498;
   const float peak = width * 0.5;
   float tri = p < peak ? p / peak : (1.0 - (p - peak) / (width - peak));
-  return clamp(tri, 0.0, 1.0);
+  tri = clamp(tri, 0.0, 1.0);
+  return smootherstep(tri);
 }
 
 // the `sousavfx.frag` ring pattern evaluated at one point (maskType 0, angle
@@ -63,8 +69,8 @@ Cell ringCell(vec2 q) {
   float ang = atan(q.y, q.x); // -PI .. PI
 
   // divisions start 46, head down to 5, sweep up to 89 and back, ~20 min
-  float divisions = 47.0 - 42.0 * sin(time * 0.005236 + 0.0238);
-  float rot = fract(time * 0.012);
+  float divisions = 47.0 - 42.0 * sin(time * 0.02536 + 0.0238);
+  float rot = fract(time * -0.16);
   float curve = 0.2 + 0.25 * sin(time * 0.02);
 
   float phase = fract(ang / 6.28318530718 * divisions + rot + curve * (rad - 0.85));

@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body class="theme-base-0d sidebar-overlay">
+  <body class="theme-base-0d sidebar-overlay{% if page.url == '/links/' %} page-links{% endif %}">
 
     {% include sidebar.html %}
 

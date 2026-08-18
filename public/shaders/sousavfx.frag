@@ -44,7 +44,7 @@ void main(void) {
   // divisions start 46, head down to 5, sweep up to 89 and back, ~20 min
   float divisions = 47.0 - 42.0 * sin(time * 0.005236 + 0.0238);
   // rotation sweeps one "division length" per ~75 s, like the controller does
-  float rot = fract(time * 0.012);
+  float rot = fract(time * 1.2);
   // division curve twists the division borders with radius
   float curve = 0.2 + 0.25 * sin(time * 0.02);
 

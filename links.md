@@ -14,37 +14,37 @@ background_shader: true
 
 ### Music
 
-- <a href="https://soundcloud.com/sousastep"><img class="social-icon" src="{{ '/images/social/soundcloud.svg' | relative_url }}" alt="">soundcloud</a>
+&nbsp; <a href="https://soundcloud.com/sousastep"><img class="social-icon" src="{{ '/images/social/soundcloud.svg' | relative_url }}" alt="">soundcloud</a>
 
-- <a href="https://sousastep.bandcamp.com/"><img class="social-icon" src="{{ '/images/social/bandcamp.svg' | relative_url }}" alt="">bandcamp</a>
+&nbsp; <a href="https://sousastep.bandcamp.com/"><img class="social-icon" src="{{ '/images/social/bandcamp.svg' | relative_url }}" alt="">bandcamp</a>
 
-- <a href="https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N"><img class="social-icon" src="{{ '/images/social/spotify.svg' | relative_url }}" alt="">spotify</a>
+&nbsp; <a href="https://open.spotify.com/artist/12OpXcX0kDIYU6EBIFDj6N"><img class="social-icon" src="{{ '/images/social/spotify.svg' | relative_url }}" alt="">spotify</a>
 
 - [discography](https://www.sousastep.quest/discography/)
 
 ### Socials
 
-- <a href="https://www.youtube.com/@sousastep"><img class="social-icon" src="{{ '/images/social/youtube.svg' | relative_url }}" alt="">youtube</a>
+&nbsp; <a href="https://www.youtube.com/@sousastep"><img class="social-icon" src="{{ '/images/social/youtube.svg' | relative_url }}" alt="">youtube</a>
 
-- <a href="https://instagram.com/sousasteps"><img class="social-icon" src="{{ '/images/social/instagram.svg' | relative_url }}" alt="">instagram</a>
+&nbsp; <a href="https://instagram.com/sousasteps"><img class="social-icon" src="{{ '/images/social/instagram.svg' | relative_url }}" alt="">instagram</a>
 
-- <a href="https://tiktok.com/@sousastep"><img class="social-icon" src="{{ '/images/social/tiktok.svg' | relative_url }}" alt="">tiktok</a>
+&nbsp; <a href="https://tiktok.com/@sousastep"><img class="social-icon" src="{{ '/images/social/tiktok.svg' | relative_url }}" alt="">tiktok</a>
 
-- <a href="https://www.twitch.tv/sousastep"><img class="social-icon" src="{{ '/images/social/twitch.svg' | relative_url }}" alt="">twitch</a>
+&nbsp; <a href="https://www.twitch.tv/sousastep"><img class="social-icon" src="{{ '/images/social/twitch.svg' | relative_url }}" alt="">twitch</a>
 
-- <a href="https://discord.gg/JkSQzfZUdT"><img class="social-icon" src="{{ '/images/social/discord.svg' | relative_url }}" alt="">discord</a>
+&nbsp; <a href="https://discord.gg/JkSQzfZUdT"><img class="social-icon" src="{{ '/images/social/discord.svg' | relative_url }}" alt="">discord</a>
 
-- <a href="https://bsky.app/profile/sousastep.bsky.social"><img class="social-icon" src="{{ '/images/social/bluesky.svg' | relative_url }}" alt="">bluesky</a>
+&nbsp; <a href="https://bsky.app/profile/sousastep.bsky.social"><img class="social-icon" src="{{ '/images/social/bluesky.svg' | relative_url }}" alt="">bluesky</a>
 
-- <a href="https://mastodon.social/@sousastep"><img class="social-icon" src="{{ '/images/social/mastodon.svg' | relative_url }}" alt="">mastodon</a>
+&nbsp; <a href="https://mastodon.social/@sousastep"><img class="social-icon" src="{{ '/images/social/mastodon.svg' | relative_url }}" alt="">mastodon</a>
 
-- <a href="https://github.com/jbaylies"><img class="social-icon" src="{{ '/images/social/github.svg' | relative_url }}" alt="">github</a>
+&nbsp; <a href="https://github.com/jbaylies"><img class="social-icon" src="{{ '/images/social/github.svg' | relative_url }}" alt="">github</a>
 
-- <a href="https://www.last.fm/user/jbaylies"><img class="social-icon" src="{{ '/images/social/lastdotfm.svg' | relative_url }}" alt="">last.fm</a>
+&nbsp; <a href="https://www.last.fm/user/jbaylies"><img class="social-icon" src="{{ '/images/social/lastdotfm.svg' | relative_url }}" alt="">last.fm</a>
 
-- <a href="https://x.com/sousastep1"><img class="social-icon" src="{{ '/images/social/x.svg' | relative_url }}" alt="">twitter</a>
+&nbsp; <a href="https://x.com/sousastep1"><img class="social-icon" src="{{ '/images/social/x.svg' | relative_url }}" alt="">twitter</a>
 
-- <a href="https://www.facebook.com/sousasteps"><img class="social-icon" src="{{ '/images/social/facebook.svg' | relative_url }}" alt="">facebook</a>
+&nbsp; <a href="https://www.facebook.com/sousasteps"><img class="social-icon" src="{{ '/images/social/facebook.svg' | relative_url }}" alt="">facebook</a>
 
 ### Resources
 
