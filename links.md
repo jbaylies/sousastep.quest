@@ -62,4 +62,4 @@ background_shader: true
 
 - [2018 Electrobrass Conference](https://web.archive.org/web/20250318033411/https://www.electrobrass.com/)
 
-<img src="{{ '/images/uran.jpg' | relative_url }}" alt="Sousastep performing live" class="hero-image" loading="lazy">
+<!-- <img src="{{ '/images/uran.jpg' | relative_url }}" alt="Sousastep performing live" class="hero-image" loading="lazy"> -->

@@ -8,9 +8,11 @@
     {% include sidebar.html %}
 
     {% if page.background_shader %}
-    <!-- Subtle animated background (SousaVFX phyllotaxis voronoi). Fixed, behind content. -->
-    <script type="text/javascript" src="https://unpkg.com/shadify@1.0.1/lib/Shadify.js"></script>
-    <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-speed="0.5" data-shader-quality="2.0" data-shader-z-index="-1"></div>
+    <!-- Subtle animated background (SousaVFX phyllotaxis voronoi). Fixed, behind content.
+         Rendered by public/js/vfx.js: the static voronoi index map is precomputed once
+         into a texture, then a cheap per-frame pass colors it at device-pixel resolution.
+         The old shadify setup rendered at half res and showed blocky integer-scale upscaling. -->
+    <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-speed="0.5" data-shader-z-index="-1"></div>
     {% endif %}
 
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
@@ -33,5 +35,8 @@
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
     <script src='{{ site.baseurl }}/public/js/script.js'></script>
+    {% if page.background_shader %}
+    <script src='{{ site.baseurl }}/public/js/vfx.js'></script>
+    {% endif %}
   </body>
 </html>
