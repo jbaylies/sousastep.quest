@@ -9,9 +9,18 @@
 // of a 200-site loop, so the background can render at full device-pixel
 // resolution cheaply.
 //
-// Index texture (RGBA8, 1:1 with the canvas):
+// The canvas spans the FULL PAGE (absolute, behind the content) for the scroll
+// parallax: `resolution` stays the VIEWPORT size in device pixels, so the
+// spiral keeps its scale and its center at the initial viewport center, while
+// `u_offset` (device px, = (1 - parallax) * scrollY * dpr) shifts the pattern's
+// coordinate space as the page scrolls. The pattern therefore moves with the
+// page at `parallax` times the scroll speed (slower than the text).
+//
+// Index texture (RGBA8, 1:1 with the canvas, one texel per canvas pixel):
 //   R = nearest site index / 255.0
 //   B = cell silhouette smoothstep(0.02, 0.09, d2 - d1)   (static)
+// It is sampled in the SAME shifted coordinate space, so cell boundaries stay
+// crisp (and the 1:1 mapping is preserved) at any scroll position.
 //
 // Each cell is colored ONLY by the color that the `sousavfx.frag` ring shader
 // evaluates at its point, so the background looks like discretized LEDs wrapped
@@ -22,7 +31,9 @@ precision highp float;
 
 uniform float time;
 uniform vec2 mouse;
-uniform vec2 resolution;
+uniform vec2 resolution;  // viewport size in device px — pattern scale & center
+uniform vec2 u_indexRes;  // index-map (canvas) size in device px — full page
+uniform vec2 u_offset;    // device-px pattern shift: (0, (1 - parallax) * scrollY * dpr)
 
 uniform sampler2D u_indexMap;
 
@@ -87,15 +98,21 @@ Cell ringCell(vec2 q) {
 }
 
 void main(void) {
+  // parallax: shift the whole pattern (and its index-map sampling) by u_offset.
+  // At scroll 0 the offset is 0, so the spiral sits exactly where it always has;
+  // scrolling slides the pattern by (1 - parallax) per pixel of scroll, i.e. the
+  // background trails the text instead of scrolling at full speed.
+  vec2 coord = gl_FragCoord.xy - u_offset;
+
   // centered, aspect-corrected coordinates, same space as the sites (radius 0..1)
-  vec2 p = (2.0 * gl_FragCoord.xy - resolution.xy) / resolution.y;
+  vec2 p = (2.0 * coord - resolution.xy) / resolution.y;
 
   // nearest site from the precomputed index map (1:1 texel mapping, so the
   // cell boundaries are exactly as crisp as the index map itself). The index is
   // exact in 8 bits; reconstruct the site position from the phyllotaxis formula
   // so it is exact too (no quantization, which would tint cells near the center
   // where the ring color is angle-sensitive).
-  vec2 uv = gl_FragCoord.xy / resolution.xy;
+  vec2 uv = coord / u_indexRes;
   vec4 idxTex = texture2D(u_indexMap, uv);
   int best = int(floor(idxTex.r * 255.0 + 0.5));
   float fi = float(best);

@@ -1,4 +1,4 @@
-// Full-resolution phyllotaxis voronoi background.
+// Full-resolution phyllotaxis voronoi background with scroll parallax.
 //
 // Two-pass renderer that replaces the single-pass shadify setup:
 //   pass 1 (once, and again on resize) renders the STATIC voronoi index map
@@ -9,10 +9,19 @@
 // at full device-pixel resolution (devicePixelRatio-aware) — crisp on retina —
 // for less GPU work than the old half-resolution single pass.
 //
+// The canvas spans the FULL PAGE (absolute, behind the content). The shader's
+// `resolution` uniform stays the VIEWPORT size, so the spiral keeps its size
+// and its center at the initial viewport center; a scroll offset moves the
+// pattern at `data-shader-parallax` times the scroll speed (slower than the
+// text). The index map is rendered once at full-page size and pass 2 simply
+// re-samples it with the scroll offset, so scrolling costs nothing extra.
+//
 // The host element carries the same data-* attributes shadify used:
-//   data-shader         URL of the main (pass 2) fragment shader
-//   data-shader-speed   animation speed multiplier
-//   data-shader-z-index z-index for the canvas
+//   data-shader           URL of the main (pass 2) fragment shader
+//   data-shader-speed     animation speed multiplier
+//   data-shader-parallax  scroll parallax factor 0..1 (0 = no motion,
+//                         1 = scrolls with the text); default 0.3
+//   data-shader-z-index   z-index for the canvas
 (function(document) {
   var INDEX_SUFFIX = '-index.frag';
   var VERT = '\n attribute vec2 coords;\n void main(void) {\n   gl_Position = vec4(coords.xy, 0.0, 1.0);\n }\n ';
@@ -56,14 +65,16 @@
     var shaderUrl = host.getAttribute('data-shader');
     if (!shaderUrl) return;
     var speed = parseFloat(host.getAttribute('data-shader-speed')) || 1;
+    var parallax = parseFloat(host.getAttribute('data-shader-parallax'));
+    parallax = (parallax >= 0 && parallax <= 1) ? parallax : 0.3;
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     var canvas = document.createElement('canvas');
-    canvas.style.position = 'fixed';
+    // absolute, anchored to the top of the page; height is set to the full
+    // page height by resize() so the background reaches the bottom of the page
+    canvas.style.position = 'absolute';
     canvas.style.left = '0';
-    canvas.style.right = '0';
     canvas.style.top = '0';
-    canvas.style.bottom = '0';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.zIndex = host.getAttribute('data-shader-z-index') || '-1';
@@ -78,7 +89,7 @@
       fetch(indexUrl).then(function(r) { return r.text(); })
     ]).then(function(sources) {
       try {
-        run(gl, canvas, host, speed, reduced, sources[0], sources[1]);
+        run(gl, canvas, host, speed, parallax, reduced, sources[0], sources[1]);
       } catch (e) {
         console.error('vfx:', e);
       }
@@ -87,7 +98,8 @@
     });
   }
 
-  function run(gl, canvas, host, speed, reduced, mainSrc, indexSrc) {
+  function run(gl, canvas, host, speed, parallax, reduced, mainSrc, indexSrc) {
+    var maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE) || 4096;
     var prog = link(gl, mainSrc);
     var idxProg = link(gl, indexSrc);
 
@@ -108,6 +120,8 @@
     var uTime = gl.getUniformLocation(prog, 'time');
     var uMouse = gl.getUniformLocation(prog, 'mouse');
     var uIdx = gl.getUniformLocation(prog, 'u_indexMap');
+    var uIndexRes = gl.getUniformLocation(prog, 'u_indexRes');
+    var uOffset = gl.getUniformLocation(prog, 'u_offset');
     var iRes = gl.getUniformLocation(idxProg, 'resolution');
     var iSites = gl.getUniformLocation(idxProg, 'u_sites');
 
@@ -135,7 +149,7 @@
       }
       gl.viewport(0, 0, w, h);
       gl.useProgram(idxProg);
-      gl.uniform2f(iRes, w, h);
+      gl.uniform2f(iRes, viewW, viewH);
       gl.uniform2fv(iSites, pts);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
@@ -143,17 +157,43 @@
       indexDirty = false;
     }
 
+    // device-pixel sizes; `resolution` for the shaders is the VIEWPORT size so
+    // the spiral keeps its size and its center at the initial viewport center
+    var dpr = 1;
+    var viewW = 1;
+    var viewH = 1;
+
     function resize() {
       // full device-pixel resolution (capped so ultra-high-DPI screens don't
       // overdraw); pass 2 is cheap enough that this stays affordable
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // the canvas spans the whole page so the parallax background reaches the
+      // bottom of the page (rechecked every frame; content height can change
+      // after fonts/images load)
+      var pageH = Math.max(
+        document.documentElement.scrollHeight,
+        (document.body && document.body.scrollHeight) || 0
+      );
       var w = Math.max(1, Math.round(window.innerWidth * dpr));
-      var h = Math.max(1, Math.round(window.innerHeight * dpr));
+      var h = Math.max(1, Math.round(pageH * dpr));
+      // very tall pages could exceed the GPU's max texture size for the index
+      // map; cap the canvas so the map stays renderable
+      h = Math.min(h, maxTex);
+
+      viewW = w;
+      viewH = Math.max(1, Math.round(window.innerHeight * dpr));
+
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
         indexDirty = true;
       }
+
+      // CSS size: full page height (the host is the positioned ancestor)
+      var cssH = (h / dpr) + 'px';
+      if (canvas.style.height !== cssH) canvas.style.height = cssH;
+      if (host.style.height !== cssH) host.style.height = cssH;
     }
 
     var mouseX = 0;
@@ -169,11 +209,18 @@
       resize();
       if (indexDirty) buildIndexMap();
 
+      // scroll parallax: shift the pattern by (1 - parallax) * scrollY (device
+      // px), so the background moves at `parallax` times the scroll speed
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var offY = (1 - parallax) * scrollY * dpr;
+
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.useProgram(prog);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform2f(uRes, viewW, viewH);
+      gl.uniform2f(uIndexRes, canvas.width, canvas.height);
+      gl.uniform2f(uOffset, 0, offY);
       gl.uniform1f(uTime, (now / 1000) * speed);
-      gl.uniform2f(uMouse, mouseX / canvas.width, 1 - mouseY / canvas.height);
+      gl.uniform2f(uMouse, mouseX / viewW, 1 - mouseY / viewH);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.uniform1i(uIdx, 0);
@@ -186,9 +233,12 @@
 
     resize();
     if (reduced) {
-      // single still frame, no rAF loop
+      // single still frames, no rAF loop; re-render on resize or scroll so the
+      // static background stays anchored to the page
       frame(0);
-      window.addEventListener('resize', function() { frame(0); });
+      var staticFrame = function() { frame(0); };
+      window.addEventListener('resize', staticFrame);
+      window.addEventListener('scroll', staticFrame, { passive: true });
     } else {
       requestAnimationFrame(frame);
     }

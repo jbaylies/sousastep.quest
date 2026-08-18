@@ -6,7 +6,15 @@
 // just samples this texture instead of looping over all 200 sites, which makes
 // full-resolution (device-pixel) rendering cheap.
 //
-// Texture layout (RGBA8, 1:1 with the canvas):
+// The index texture is 1:1 with the full-page canvas (one texel per canvas
+// pixel). `resolution` is the VIEWPORT size in device pixels: the pattern's
+// scale (radius 1 = half the viewport height) and center (the initial viewport
+// center) stay exactly as they were before the full-page parallax change, so
+// the spiral keeps its size and position while the canvas simply extends down
+// the rest of the page. pass 2 re-samples this same texture with its scroll
+// offset, so it is rendered once, not per scroll position.
+//
+// Texture layout (RGBA8):
 //   R = nearest site index / 255.0   (exact for 0..255)
 //   G = unused
 //   B = cell silhouette smoothstep(0.02, 0.09, d2 - d1)  (static, 0..1)
@@ -20,7 +28,7 @@
 precision highp float;
 #endif
 
-uniform vec2 resolution;
+uniform vec2 resolution;  // viewport size in device px — pattern scale & center
 
 const int N = 200;
 

@@ -649,12 +649,17 @@ iframe[src*=youtube] {
 /*
  * Page background shader
  *
- * Host for a shadify canvas behind the content (see links page).
+ * Host for the vfx canvas behind the content (see links page). Spans the FULL
+ * page (absolute, anchored to the top; height is set by public/js/vfx.js) so
+ * the shader reaches the bottom of the page and scrolls with it, at a slower
+ * parallax rate than the text. z-index -1 keeps it behind the content.
  */
 
 .vfx-background {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: -1;
   pointer-events: none;
 }
