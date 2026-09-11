@@ -11,8 +11,7 @@ Nothing scheduled, currently!
 
 ## 2026
 
-September 4 - 6: [Secret Dreams](https://www.youtube.com/shorts/ODcT3P2wD44)
-    1st golf cart traversal
+September 4 - 6: [Secret Dreams](https://www.youtube.com/shorts/ODcT3P2wD44)<br>
 
 July 21 - 26: [Big Dub](https://www.youtube.com/shorts/y-0XnNt5qKQ)<br>
     1st wandering set
