@@ -613,6 +613,14 @@ a.pagination-item:hover {
   color: #ff7f50; /* was #7fd0c0 via .theme-base-0d; #e07474 before this */
 }
 
+@media (min-width: 38rem) {
+  .page-links .container.content {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+
 
 /*
  * Overlay sidebar
