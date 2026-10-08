@@ -31,6 +31,18 @@
 // supplies, via u_lock (0 = time equation, 1 = u_params). The panel's speed
 // slider is applied to `time` itself in the render loop (public/js/vfx.js), so
 // it needs no uniform here.
+//
+// `u_maskType` ports the `params.maskType` switch from the SousaVFX C++ that
+// drives the hardware LED ring:
+//   case 0: angle-based divisions (`angleshirez[i] * phaseMultAngle`) — the
+//           original effect, which has a seam where the angle wraps;
+//   case 1: index-from-center based (`indexFromCenter[i] * phaseMultIndex`) —
+//           Jason Coon's seam-free variant.
+// `divisions` plays the role of the phase multiplier in both cases (angular
+// divisions in case 0, cycles from the centre to the rim in case 1), and the
+// shared `rotationNormalized + radHiRez * curveNormalized` term that follows the
+// switch in the C++ is `rot` here (the old `curve` term was removed). The C++
+// case 2 (coordinate-based) is commented out upstream too, so it is not ported.
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -45,6 +57,11 @@ uniform vec2 u_offset;    // device-px pattern shift: (0, (1 - parallax) * scrol
 // slider owns the parameter, and u_params carries (divisions, rot).
 uniform vec2 u_lock;
 uniform vec2 u_params;
+
+// Mask mode, from the links-page toggle: 0 = angle-based (case 0 above),
+// 1 = index-from-center based (case 1). Interpolated rather than branched so
+// the modes blend without dynamic branching in the fragment shader.
+uniform float u_maskType;
 
 uniform sampler2D u_indexMap;
 
@@ -77,16 +94,20 @@ float divisionMask(float p) {
   return smootherstep(tri);
 }
 
-// the `sousavfx.frag` ring pattern evaluated at one point (maskType 0, angle
-// based — pinwheel wedges). Returns the cell value, plus the raw palette color
-// and glow at that point so lit cells can radiate a halo.
+// the `sousavfx.frag` ring pattern evaluated at one point. The mask is either
+// angle based (pinwheel wedges, case 0) or index-from-center based (concentric
+// rings, case 1, seam-free) — see u_maskType. Returns the cell value, plus the
+// raw palette color and glow at that point so lit cells can radiate a halo.
 struct Cell {
   vec3 color; // final cell color (palette blended into the page background)
   vec3 lit;   // raw palette color at the site, for the glow
   float glow; // division mask intensity 0..1 at the site
 };
 
-Cell ringCell(vec2 q) {
+// indexFromCenter: the site's LED index measured from the centre, normalized to
+// 0..1 (`indexFromCenter[i]` in the C++, i.e. position along the phyllotaxis
+// spiral). Only used by mask case 1.
+Cell ringCell(vec2 q, float indexFromCenter) {
   float rad = length(q);
   float ang = atan(q.y, q.x); // -PI .. PI
 
@@ -98,7 +119,9 @@ Cell ringCell(vec2 q) {
   divisions = mix(divisions, u_params.x, u_lock.x);
   rot = mix(rot, u_params.y, u_lock.y);
 
-  float phase = fract(ang / 6.28318530718 * divisions + rot);
+  // the switch: case 0 uses the site's angle, case 1 its index from the centre
+  float totalPhase = mix(ang / 6.28318530718 * divisions, indexFromCenter * divisions, u_maskType);
+  float phase = fract(totalPhase + rot);
   float glow = divisionMask(phase) * (1.0 - smoothstep(0.7, 1.15, rad));
 
   vec3 paletteCol = palette(fract(ang / 6.28318530718 * divisions + time * 0.008));
@@ -134,8 +157,10 @@ void main(void) {
   float ang = fi * GOLDEN;
   vec2 bestPos = vec2(rad * cos(ang), rad * sin(ang));
 
-  // the cell takes the color of its point on the current shader, only
-  Cell cell = ringCell(bestPos);
+  // the cell takes the color of its point on the current shader, only. The
+  // `indexFromCenter` argument feeds mask case 1 (seam-free rings); the palette
+  // stays angle-based in both modes, as only `totalPhase` is switched upstream.
+  Cell cell = ringCell(bestPos, (fi + 0.5) / float(N));
 
   // halo: lit cells bloom with their own palette color, fading with distance
   // from the cell center (gaussian, sigma ~ cell spacing)

@@ -707,6 +707,30 @@ a.pagination-item:hover {
   .vfx-control:not(.is-locked) .vfx-slider {
     opacity: .45;
   }
+
+  /* mask-mode toggle, on its own row below the sliders */
+  .vfx-mask {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .4rem;
+    margin-top: 1rem;
+    padding-top: .8rem;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    color: #8a90a3;
+    cursor: pointer;
+  }
+
+  .vfx-mask.is-on {
+    color: #7fd0c0;
+  }
+
+  .vfx-mask-input {
+    flex: none;
+    margin: 0;
+    accent-color: #7fd0c0;
+    cursor: pointer;
+  }
 }
 
 

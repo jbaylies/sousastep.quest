@@ -26,26 +26,26 @@
          keeps this panel hidden until the viewport is wide enough to fit it on
          the right hand side of the left-aligned text column. -->
     <aside class="vfx-controls" aria-label="Background shader parameters">
-      <p class="vfx-controls-title">shader</p>
+      <p class="vfx-controls-title">shader parameters</p>
 
       <div class="vfx-control">
         <label class="vfx-control-name" for="vfx-speed">speed</label>
-        <output class="vfx-control-value" for="vfx-speed">1.0</output>
-        <input class="vfx-slider" id="vfx-speed" type="range" min="-10" max="10" step="0.1" value="1" data-shader-param="speed">
+        <output class="vfx-control-value" for="vfx-speed">0.7</output>
+        <input class="vfx-slider" id="vfx-speed" type="range" min="-10" max="10" step="0.1" value="0.7" data-shader-param="speed">
       </div>
 
       <div class="vfx-control">
         <label class="vfx-control-name" for="vfx-divisions">divisions</label>
-        <output class="vfx-control-value" for="vfx-divisions">46.0</output>
+        <output class="vfx-control-value" for="vfx-divisions">56.0</output>
         <label class="vfx-control-lock" title="Lock divisions to the slider value">
-          <input class="vfx-lock" id="vfx-divisions-lock" type="checkbox">
+          <input class="vfx-lock" id="vfx-divisions-lock" type="checkbox" checked>
           <span>lock</span>
         </label>
-        <input class="vfx-slider" id="vfx-divisions" type="range" min="5" max="89" step="0.5" value="46" data-shader-param="divisions">
+        <input class="vfx-slider" id="vfx-divisions" type="range" min="5" max="89" step="0.5" value="56" data-shader-param="divisions">
       </div>
 
       <div class="vfx-control">
-        <label class="vfx-control-name" for="vfx-rot">rot</label>
+        <label class="vfx-control-name" for="vfx-rot">rotation</label>
         <output class="vfx-control-value" for="vfx-rot">0.00</output>
         <label class="vfx-control-lock" title="Lock rot to the slider value">
           <input class="vfx-lock" id="vfx-rot-lock" type="checkbox">
@@ -53,6 +53,16 @@
         </label>
         <input class="vfx-slider" id="vfx-rot" type="range" min="0" max="1" step="0.01" value="0" data-shader-param="rot">
       </div>
+
+      <!-- mask mode, ported from the SousaVFX `params.maskType` switch: off is
+           case 0 (angle-based divisions, the original effect with a seam), on
+           is case 1 (index-from-center divisions, seam-free — Jason Coon).
+           Defaults to off (case 0). -->
+      <label class="vfx-mask" for="vfx-mask-type"
+             title="Off: angle-based divisions (original, has a seam). On: index-from-center divisions (seam-free).">
+        <span>seam-free mask</span>
+        <input class="vfx-mask-input" id="vfx-mask-type" type="checkbox" data-shader-mask="maskType">
+      </label>
     </aside>
     {% endif %}
     {% endif %}

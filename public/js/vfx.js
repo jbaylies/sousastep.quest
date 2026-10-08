@@ -27,8 +27,10 @@
 // sliders drive the shader parameters. `divisions` and `rot` have a lock
 // checkbox each: unlocked, the shader's time-run equation owns the parameter;
 // locked (or as soon as the slider is dragged) the slider value wins. `speed`
-// has no checkbox — it always scales `time`, defaulting to 1 when the panel is
-// absent.
+// has no checkbox — it always scales `time`, defaulting to 0.7 when the panel is
+// absent. Below the sliders, a mask-mode toggle drives u_maskType (0 =
+// angle-based divisions, 1 = index-from-center divisions, seam-free), off by
+// default.
 (function(document) {
   var INDEX_SUFFIX = '-index.frag';
   var VERT = '\n attribute vec2 coords;\n void main(void) {\n   gl_Position = vec4(coords.xy, 0.0, 1.0);\n }\n ';
@@ -71,7 +73,7 @@
   function init(host) {
     var shaderUrl = host.getAttribute('data-shader');
     if (!shaderUrl) return;
-    var speed = parseFloat(host.getAttribute('data-shader-speed')) || 1;
+    var speed = parseFloat(host.getAttribute('data-shader-speed')) || 0.7;
     var parallax = parseFloat(host.getAttribute('data-shader-parallax'));
     parallax = (parallax >= 0 && parallax <= 1) ? parallax : 0.3;
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -82,10 +84,23 @@
     // equation"; the speed row has no checkbox, so it is always locked to its
     // slider value (which scales `time` in the render loop).
     var controls = {
-      params: { speed: 1, divisions: 46, rot: 0 },
-      locks: { speed: 0, divisions: 0, rot: 0 },
+      params: { speed: 0.7, divisions: 56, rot: 0 },
+      locks: { speed: 0, divisions: 1, rot: 0 },
+      maskType: 0,
       redraw: null
     };
+
+    // mask-mode toggle below the sliders: off = case 0, on = case 1
+    var maskToggle = document.querySelector('.vfx-controls .vfx-mask-input');
+    if (maskToggle) {
+      var syncMask = function() {
+        controls.maskType = maskToggle.checked ? 1 : 0;
+        maskToggle.closest('.vfx-mask').className = 'vfx-mask' + (maskToggle.checked ? ' is-on' : '');
+        if (controls.redraw) controls.redraw();
+      };
+      maskToggle.addEventListener('change', syncMask);
+      syncMask();
+    }
 
     Array.prototype.forEach.call(document.querySelectorAll('.vfx-controls .vfx-control'), function(row) {
       var slider = row.querySelector('input[type="range"]');
@@ -175,6 +190,7 @@
     var uOffset = gl.getUniformLocation(prog, 'u_offset');
     var uParams = gl.getUniformLocation(prog, 'u_params');
     var uLock = gl.getUniformLocation(prog, 'u_lock');
+    var uMaskType = gl.getUniformLocation(prog, 'u_maskType');
     var iRes = gl.getUniformLocation(idxProg, 'resolution');
     var iSites = gl.getUniformLocation(idxProg, 'u_sites');
 
@@ -278,6 +294,7 @@
       gl.uniform2f(uMouse, mouseX / viewW, 1 - mouseY / viewH);
       gl.uniform2f(uParams, controls.params.divisions, controls.params.rot);
       gl.uniform2f(uLock, controls.locks.divisions, controls.locks.rot);
+      gl.uniform1f(uMaskType, controls.maskType);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.uniform1i(uIdx, 0);
