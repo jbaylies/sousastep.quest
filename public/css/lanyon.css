@@ -620,6 +620,95 @@ a.pagination-item:hover {
   }
 }
 
+/*
+ * Shader controls (links page)
+ *
+ * Fixed to the right edge of the page, beside the left-aligned text column.
+ * Hidden until there is room for both: the text column is 38rem (760px) wide
+ * once the root font size steps up to 20px, and the panel is 13rem (260px)
+ * plus its 2rem offset, so 70em (1120px) is the first viewport width that fits
+ * them side by side. Narrower (mobile/tablet) viewports never show the panel.
+ */
+
+.vfx-controls {
+  display: none;
+}
+
+@media (min-width: 70em) {
+  .page-links .vfx-controls {
+    position: fixed;
+    top: 8rem;
+    right: 2rem;
+    z-index: 1;
+    display: block;
+    width: 13rem;
+    padding: 1rem;
+    color: #cdd1dc;
+    font: .75rem/1.4 "PT Sans", Helvetica, Arial, sans-serif;
+    background-color: #151b26; /* solid fallback (no backdrop-filter support) */
+    background-color: rgba(21, 27, 38, .78); /* frosted, like the sidebar */
+    border: 1px solid rgba(127, 208, 192, .28);
+    border-radius: .35rem;
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+  }
+
+  .vfx-controls-title {
+    margin: 0;
+    color: #8a90a3;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  /* name (left) · value · lock toggle (right), slider across the full width.
+     The third track keeps a fixed width so the value readouts stay aligned on
+     the speed row too, which has no lock toggle. */
+  .vfx-control {
+    display: grid;
+    grid-template-columns: auto 1fr 3.4rem;
+    align-items: center;
+    gap: .2rem .4rem;
+    margin-top: .8rem;
+  }
+
+  .vfx-control-name {
+    color: #d6dae5;
+  }
+
+  .vfx-control-value {
+    color: #a3e2d5;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .vfx-control-lock {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: .25rem;
+    color: #8a90a3;
+    cursor: pointer;
+  }
+
+  .vfx-control.is-locked .vfx-control-lock {
+    color: #7fd0c0;
+  }
+
+  .vfx-slider {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    accent-color: #7fd0c0;
+    cursor: pointer;
+  }
+
+  /* the time-run equation owns the parameter until the row is locked */
+  .vfx-control:not(.is-locked) .vfx-slider {
+    opacity: .45;
+  }
+}
+
 
 
 /*

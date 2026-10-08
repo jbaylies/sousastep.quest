@@ -15,7 +15,46 @@
          colors it at device-pixel resolution and shifts it with the scroll.
          The old shadify setup rendered at half res and showed blocky
          integer-scale upscaling. -->
-    <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-speed="0.5" data-shader-parallax="0.3" data-shader-z-index="-1"></div>
+    <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-parallax="0.3" data-shader-z-index="-1"></div>
+    {% if page.url == '/links/' %}
+    <!-- Shader controls (links page only). Each row drives one parameter: with
+         the lock toggled on, the slider value is used; toggled off, the
+         shader's own time-run equation controls it again (see the u_lock /
+         u_params uniforms). Adjusting a slider checks its own lock
+         automatically. `speed` has no toggle — it always drives the shader's
+         `time` parameter (negative values run the animation backwards). CSS
+         keeps this panel hidden until the viewport is wide enough to fit it on
+         the right hand side of the left-aligned text column. -->
+    <aside class="vfx-controls" aria-label="Background shader parameters">
+      <p class="vfx-controls-title">shader</p>
+
+      <div class="vfx-control">
+        <label class="vfx-control-name" for="vfx-speed">speed</label>
+        <output class="vfx-control-value" for="vfx-speed">1.0</output>
+        <input class="vfx-slider" id="vfx-speed" type="range" min="-10" max="10" step="0.1" value="1" data-shader-param="speed">
+      </div>
+
+      <div class="vfx-control">
+        <label class="vfx-control-name" for="vfx-divisions">divisions</label>
+        <output class="vfx-control-value" for="vfx-divisions">46.0</output>
+        <label class="vfx-control-lock" title="Lock divisions to the slider value">
+          <input class="vfx-lock" id="vfx-divisions-lock" type="checkbox">
+          <span>lock</span>
+        </label>
+        <input class="vfx-slider" id="vfx-divisions" type="range" min="5" max="89" step="0.5" value="46" data-shader-param="divisions">
+      </div>
+
+      <div class="vfx-control">
+        <label class="vfx-control-name" for="vfx-rot">rot</label>
+        <output class="vfx-control-value" for="vfx-rot">0.00</output>
+        <label class="vfx-control-lock" title="Lock rot to the slider value">
+          <input class="vfx-lock" id="vfx-rot-lock" type="checkbox">
+          <span>lock</span>
+        </label>
+        <input class="vfx-slider" id="vfx-rot" type="range" min="0" max="1" step="0.01" value="0" data-shader-param="rot">
+      </div>
+    </aside>
+    {% endif %}
     {% endif %}
 
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the

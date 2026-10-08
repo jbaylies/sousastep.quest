@@ -25,6 +25,12 @@
 // Each cell is colored ONLY by the color that the `sousavfx.frag` ring shader
 // evaluates at its point, so the background looks like discretized LEDs wrapped
 // around the ring pattern. Subtle page background.
+//
+// The ring's `divisions` and `rot` parameters are normally functions of `time`.
+// The links-page control panel can freeze either of them at a value it
+// supplies, via u_lock (0 = time equation, 1 = u_params). The panel's speed
+// slider is applied to `time` itself in the render loop (public/js/vfx.js), so
+// it needs no uniform here.
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -34,6 +40,11 @@ uniform vec2 mouse;
 uniform vec2 resolution;  // viewport size in device px — pattern scale & center
 uniform vec2 u_indexRes;  // index-map (canvas) size in device px — full page
 uniform vec2 u_offset;    // device-px pattern shift: (0, (1 - parallax) * scrollY * dpr)
+
+// Manual overrides from the links-page control panel: u_lock is 1 where a
+// slider owns the parameter, and u_params carries (divisions, rot).
+uniform vec2 u_lock;
+uniform vec2 u_params;
 
 uniform sampler2D u_indexMap;
 
@@ -82,9 +93,12 @@ Cell ringCell(vec2 q) {
   // divisions start 46, head down to 5, sweep up to 89 and back, ~20 min
   float divisions = 47.0 - 42.0 * sin(time * 0.02536 + 0.0238);
   float rot = fract(time * -0.16);
-  float curve = 0.2 + 0.25 * sin(time * 0.02);
 
-  float phase = fract(ang / 6.28318530718 * divisions + rot + curve * (rad - 0.85));
+  // a locked slider replaces the time-driven value (u_lock = 0 keeps it)
+  divisions = mix(divisions, u_params.x, u_lock.x);
+  rot = mix(rot, u_params.y, u_lock.y);
+
+  float phase = fract(ang / 6.28318530718 * divisions + rot);
   float glow = divisionMask(phase) * (1.0 - smoothstep(0.7, 1.15, rad));
 
   vec3 paletteCol = palette(fract(ang / 6.28318530718 * divisions + time * 0.008));

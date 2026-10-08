@@ -22,6 +22,13 @@
 //   data-shader-parallax  scroll parallax factor 0..1 (0 = no motion,
 //                         1 = scrolls with the text); default 0.3
 //   data-shader-z-index   z-index for the canvas
+//
+// The links page also renders a control panel (see _layouts/default.html) whose
+// sliders drive the shader parameters. `divisions` and `rot` have a lock
+// checkbox each: unlocked, the shader's time-run equation owns the parameter;
+// locked (or as soon as the slider is dragged) the slider value wins. `speed`
+// has no checkbox — it always scales `time`, defaulting to 1 when the panel is
+// absent.
 (function(document) {
   var INDEX_SUFFIX = '-index.frag';
   var VERT = '\n attribute vec2 coords;\n void main(void) {\n   gl_Position = vec4(coords.xy, 0.0, 1.0);\n }\n ';
@@ -69,6 +76,50 @@
     parallax = (parallax >= 0 && parallax <= 1) ? parallax : 0.3;
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Shader control panel state, shared with the render loop: `params` are the
+    // slider values and `locks` are 0/1 per parameter. For divisions and rot a
+    // lock means "use the slider value instead of the shader's time-run
+    // equation"; the speed row has no checkbox, so it is always locked to its
+    // slider value (which scales `time` in the render loop).
+    var controls = {
+      params: { speed: 1, divisions: 46, rot: 0 },
+      locks: { speed: 0, divisions: 0, rot: 0 },
+      redraw: null
+    };
+
+    Array.prototype.forEach.call(document.querySelectorAll('.vfx-controls .vfx-control'), function(row) {
+      var slider = row.querySelector('input[type="range"]');
+      var lock = row.querySelector('.vfx-lock'); // absent on the always-locked speed row
+      var value = row.querySelector('output');
+      var name = slider && slider.getAttribute('data-shader-param');
+      if (!name) return;
+
+      // enough decimals to show every value the slider's step can land on
+      var step = parseFloat(slider.getAttribute('step'));
+      var decimals = step ? Math.max(0, Math.min(3, Math.ceil(-Math.log(step) / Math.LN10))) : 2;
+
+      function isLocked() {
+        return !lock || lock.checked; // a row without a checkbox is always locked
+      }
+
+      function sync() {
+        var v = parseFloat(slider.value);
+        controls.params[name] = v;
+        controls.locks[name] = isLocked() ? 1 : 0;
+        if (value) value.textContent = v.toFixed(decimals);
+        row.className = 'vfx-control' + (isLocked() ? ' is-locked' : '');
+        if (controls.redraw) controls.redraw();
+      }
+
+      // moving a slider claims its parameter, so the lock checks itself on
+      slider.addEventListener('input', function() {
+        if (lock) lock.checked = true;
+        sync();
+      });
+      if (lock) lock.addEventListener('change', sync);
+      sync();
+    });
+
     var canvas = document.createElement('canvas');
     // absolute, anchored to the top of the page; height is set to the full
     // page height by resize() so the background reaches the bottom of the page
@@ -89,7 +140,7 @@
       fetch(indexUrl).then(function(r) { return r.text(); })
     ]).then(function(sources) {
       try {
-        run(gl, canvas, host, speed, parallax, reduced, sources[0], sources[1]);
+        run(gl, canvas, host, speed, parallax, reduced, controls, sources[0], sources[1]);
       } catch (e) {
         console.error('vfx:', e);
       }
@@ -98,7 +149,7 @@
     });
   }
 
-  function run(gl, canvas, host, speed, parallax, reduced, mainSrc, indexSrc) {
+  function run(gl, canvas, host, speed, parallax, reduced, controls, mainSrc, indexSrc) {
     var maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE) || 4096;
     var prog = link(gl, mainSrc);
     var idxProg = link(gl, indexSrc);
@@ -122,6 +173,8 @@
     var uIdx = gl.getUniformLocation(prog, 'u_indexMap');
     var uIndexRes = gl.getUniformLocation(prog, 'u_indexRes');
     var uOffset = gl.getUniformLocation(prog, 'u_offset');
+    var uParams = gl.getUniformLocation(prog, 'u_params');
+    var uLock = gl.getUniformLocation(prog, 'u_lock');
     var iRes = gl.getUniformLocation(idxProg, 'resolution');
     var iSites = gl.getUniformLocation(idxProg, 'u_sites');
 
@@ -219,8 +272,12 @@
       gl.uniform2f(uRes, viewW, viewH);
       gl.uniform2f(uIndexRes, canvas.width, canvas.height);
       gl.uniform2f(uOffset, 0, offY);
-      gl.uniform1f(uTime, (now / 1000) * speed);
+      // the panel's speed slider always drives `time` (negative = backwards);
+      // `speed` is only the fallback for pages rendered without the panel
+      gl.uniform1f(uTime, (now / 1000) * (controls.locks.speed ? controls.params.speed : speed));
       gl.uniform2f(uMouse, mouseX / viewW, 1 - mouseY / viewH);
+      gl.uniform2f(uParams, controls.params.divisions, controls.params.rot);
+      gl.uniform2f(uLock, controls.locks.divisions, controls.locks.rot);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.uniform1i(uIdx, 0);
@@ -230,6 +287,10 @@
 
       if (!reduced) requestAnimationFrame(frame);
     }
+
+    // reduced motion draws on demand only, so a slider change has to request a
+    // fresh still frame (the animated path picks the values up on the next rAF)
+    controls.redraw = function() { if (reduced) frame(0); };
 
     resize();
     if (reduced) {
