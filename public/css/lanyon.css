@@ -620,18 +620,147 @@ a.pagination-item:hover {
   }
 }
 
+/* center the masthead title over the shader, which is centered on the
+   viewport (the masthead container is centered, but its text was left-aligned) */
+.page-links .masthead-title {
+  text-align: center;
+}
+
 /*
  * Shader controls (links page)
  *
- * Fixed to the right edge of the page, beside the left-aligned text column.
- * Hidden until there is room for both: the text column is 38rem (760px) wide
+ * Wide viewports: fixed to the right edge of the page, beside the left-aligned
+ * text column. That needs room for both: the text column is 38rem (760px) wide
  * once the root font size steps up to 20px, and the panel is 13rem (260px)
  * plus its 2rem offset, so 70em (1120px) is the first viewport width that fits
- * them side by side. Narrower (mobile/tablet) viewports never show the panel.
+ * them side by side.
+ *
+ * Narrower (mobile/tablet) viewports: a button at the top right of the header
+ * opens the panel as a bottom sheet instead. The sheet is capped at a bit over
+ * half the viewport height, so the shader stays visible above it while the
+ * sliders are adjusted, and it has no backdrop, so the page can still be
+ * scrolled to see the parallax.
  */
 
-.vfx-controls {
+.vfx-controls,
+.vfx-controls-toggle,
+.vfx-controls-close {
   display: none;
+}
+
+.vfx-controls {
+  color: #cdd1dc;
+  font: .75rem/1.4 "PT Sans", Helvetica, Arial, sans-serif;
+  background-color: #151b26; /* solid fallback (no backdrop-filter support) */
+  background-color: rgba(21, 27, 38, .78); /* frosted, like the sidebar */
+  border: 1px solid rgba(127, 208, 192, .28);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.vfx-controls-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem;
+}
+
+.vfx-controls-title {
+  margin: 0;
+  color: #8a90a3;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* name (left) · value · lock toggle (right), slider across the full width.
+   The third track keeps a fixed width so the value readouts stay aligned on
+   the speed row too, which has no lock toggle. */
+.vfx-control {
+  display: grid;
+  grid-template-columns: auto 1fr 3.4rem;
+  align-items: center;
+  gap: .2rem .4rem;
+  margin-top: .7rem;
+}
+
+.vfx-control-name {
+  color: #d6dae5;
+}
+
+.vfx-control-value {
+  color: #a3e2d5;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.vfx-control-lock {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: .25rem;
+  color: #8a90a3;
+  cursor: pointer;
+}
+
+.vfx-control.is-locked .vfx-control-lock {
+  color: #7fd0c0;
+}
+
+.vfx-slider {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: #7fd0c0;
+  cursor: pointer;
+}
+
+/* the time-run equation owns the parameter until the row is locked */
+.vfx-control:not(.is-locked) .vfx-slider {
+  opacity: .45;
+}
+
+/* mask-mode toggle, on its own row below the sliders */
+.vfx-mask {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem;
+  margin-top: 1rem;
+  padding-top: .8rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  color: #8a90a3;
+  cursor: pointer;
+}
+
+.vfx-mask.is-on {
+  color: #7fd0c0;
+}
+
+.vfx-mask-input {
+  flex: none;
+  margin: 0;
+  accent-color: #7fd0c0;
+  cursor: pointer;
+}
+
+/* group headings (spiral, color), divided like the mask toggle */
+.vfx-section {
+  margin: 1rem 0 0;
+  padding-top: .8rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  color: #8a90a3;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* preview of the 16-entry palette; vfx.js sets its gradient */
+.vfx-palette {
+  height: .5rem;
+  margin-top: .5rem;
+  border-radius: .2rem;
+  background-color: #151b26;
 }
 
 @media (min-width: 70em) {
@@ -642,94 +771,188 @@ a.pagination-item:hover {
     z-index: 1;
     display: block;
     width: 13rem;
+    max-height: calc(100vh - 10rem); /* scrolls on short viewports */
+    overflow-y: auto;
     padding: 1rem;
-    color: #cdd1dc;
-    font: .75rem/1.4 "PT Sans", Helvetica, Arial, sans-serif;
-    background-color: #151b26; /* solid fallback (no backdrop-filter support) */
-    background-color: rgba(21, 27, 38, .78); /* frosted, like the sidebar */
-    border: 1px solid rgba(127, 208, 192, .28);
     border-radius: .35rem;
+  }
+}
+
+@media (max-width: 69.99em) {
+  /* the header button, mirroring the sidebar toggle on the left */
+  .page-links .vfx-controls-toggle {
+    position: absolute;
+    top: .8rem;
+    right: 1rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: .25rem .75rem;
+    color: #cdd1dc;
+    background-color: #1f2533;
+    border: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .page-links .vfx-controls-toggle svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* the slider knobs are filled with the button color, so they hide the
+     line behind them */
+  .page-links .vfx-controls-toggle circle {
+    fill: #1f2533;
+  }
+
+  .page-links .vfx-controls-toggle:active,
+  .page-links .vfx-controls-toggle[aria-expanded="true"] {
+    color: #eef1f8;
+    background-color: #39435a;
+  }
+
+  .page-links .vfx-controls-toggle:active circle,
+  .page-links .vfx-controls-toggle[aria-expanded="true"] circle {
+    fill: #39435a;
+  }
+
+  /* bottom sheet: two columns of sliders, so most of it fits without
+     scrolling; headings, the mask toggle and the palette strip span both */
+  .page-links .vfx-controls {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+    column-gap: 1.25rem;
+    max-width: 36rem;
+    max-height: 58vh;
+    max-height: 58dvh;
+    margin: 0 auto;
+    padding: .75rem 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    font-size: .875rem;
+    border-bottom: 0;
+    border-radius: .75rem .75rem 0 0;
+    box-shadow: 0 -.25rem 1rem rgba(0, 0, 0, .4);
+    visibility: hidden;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: transform .25s ease-in, visibility 0s .25s;
+            transition: transform .25s ease-in, visibility 0s .25s;
+  }
+
+  .page-links .vfx-controls.is-open {
+    visibility: visible;
+    -webkit-transform: none;
+            transform: none;
+    -webkit-transition: transform .3s ease-out;
+            transition: transform .3s ease-out;
+  }
+
+  /* the header (and its close button) stays put while the sheet scrolls */
+  .page-links .vfx-controls-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -.75rem;
+    z-index: 1;
+    margin: -.75rem -1rem 0;
+    padding: .75rem 1rem .25rem;
+    background-color: #151b26;
+    background-color: rgba(21, 27, 38, .78);
     -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
   }
 
-  .vfx-controls-title {
-    margin: 0;
-    color: #8a90a3;
-    font-size: .7rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-  }
-
-  /* name (left) · value · lock toggle (right), slider across the full width.
-     The third track keeps a fixed width so the value readouts stay aligned on
-     the speed row too, which has no lock toggle. */
-  .vfx-control {
-    display: grid;
-    grid-template-columns: auto 1fr 3.4rem;
-    align-items: center;
-    gap: .2rem .4rem;
-    margin-top: .8rem;
-  }
-
-  .vfx-control-name {
-    color: #d6dae5;
-  }
-
-  .vfx-control-value {
-    color: #a3e2d5;
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-  }
-
-  .vfx-control-lock {
-    display: flex;
-    align-items: center;
-    justify-self: end;
-    gap: .25rem;
-    color: #8a90a3;
-    cursor: pointer;
-  }
-
-  .vfx-control.is-locked .vfx-control-lock {
-    color: #7fd0c0;
-  }
-
-  .vfx-slider {
+  .page-links .vfx-controls-header,
+  .page-links .vfx-mask,
+  .page-links .vfx-section,
+  .page-links .vfx-palette {
     grid-column: 1 / -1;
-    width: 100%;
-    margin: 0;
-    accent-color: #7fd0c0;
-    cursor: pointer;
   }
 
-  /* the time-run equation owns the parameter until the row is locked */
-  .vfx-control:not(.is-locked) .vfx-slider {
-    opacity: .45;
+  /* the lock column collapses on rows without one, for the narrow columns */
+  .page-links .vfx-control {
+    grid-template-columns: auto 1fr auto;
+    margin-top: .5rem;
   }
 
-  /* mask-mode toggle, on its own row below the sliders */
-  .vfx-mask {
+  /* finger-sized hit areas: taller sliders, a bigger checkbox, a 44px close */
+  .page-links .vfx-slider {
+    height: 2rem;
+  }
+
+  .page-links .vfx-lock,
+  .page-links .vfx-mask-input {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .page-links .vfx-mask {
+    min-height: 2rem;
+    margin-top: .75rem;
+    padding-top: .5rem;
+  }
+
+  .page-links .vfx-controls-close {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: .4rem;
-    margin-top: 1rem;
-    padding-top: .8rem;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    color: #8a90a3;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: -.5rem -.75rem -.5rem 0;
+    padding: 0;
+    color: #cdd1dc;
+    background: none;
+    border: 0;
+    border-radius: 50%;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .vfx-mask.is-on {
-    color: #7fd0c0;
+  .page-links .vfx-controls-close:active {
+    background-color: rgba(255, 255, 255, .1);
   }
 
-  .vfx-mask-input {
-    flex: none;
-    margin: 0;
-    accent-color: #7fd0c0;
-    cursor: pointer;
+  .page-links .vfx-controls-close svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* tablets get the 20px root font size, so scale the sheet's text back down */
+@media (min-width: 38em) and (max-width: 69.99em) {
+  .page-links .vfx-controls {
+    font-size: .75rem;
+  }
+}
+
+/* very narrow phones: one column */
+@media (max-width: 22em) {
+  .page-links .vfx-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 30.1em) and (max-width: 69.99em) {
+  .page-links .vfx-controls-toggle {
+    position: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-links .vfx-controls,
+  .page-links .vfx-controls.is-open {
+    -webkit-transition: none;
+            transition: none;
   }
 }
 
@@ -770,17 +993,18 @@ iframe[src*=youtube] {
 /*
  * Page background shader
  *
- * Host for the vfx canvas behind the content (see links page). Spans the FULL
- * page (absolute, anchored to the top; height is set by public/js/vfx.js) so
- * the shader reaches the bottom of the page and scrolls with it, at a slower
- * parallax rate than the text. z-index -1 keeps it behind the content.
+ * Host for the vfx canvas behind the content (see links page). Fixed to the
+ * viewport, so only the visible part is shaded each frame; public/js/vfx.js
+ * shifts the pattern with the scroll for the parallax. z-index -1 keeps it
+ * behind the content.
  */
 
 .vfx-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   z-index: -1;
   pointer-events: none;
 }
