@@ -68,6 +68,13 @@
   var ROT_RATE = -0.16;
   var PALETTE_RATE = 0.008;
   var DIVISION_SWEEP_RATE = 0.02536;
+  // the unlocked divisions sweep covers the slider's whole range. Its shape is
+  // asin(k sin x) / asin(k): nearly a triangle wave, so it doesn't linger at
+  // the ends like a sine, but still turns around smoothly (k < 1 sets how
+  // rounded the turns are; k -> 1 is a sharp triangle, k -> 0 a sine).
+  var SWEEP_MIN = 1;
+  var SWEEP_MAX = 233;
+  var SWEEP_SHAPE = 0.99;
 
   // must match maxPaletteStops / maxStopChroma in SousaVFX/serial_params.h
   var STOP_COUNT = 7;
@@ -96,6 +103,23 @@
 
   function clamp01(x) {
     return x < 0 ? 0 : (x > 1 ? 1 : x);
+  }
+
+  // the unlocked divisions value at sweep phase x (radians); it heads down
+  // while cos(x) > 0 and up while cos(x) < 0
+  var SWEEP_MID = (SWEEP_MIN + SWEEP_MAX) / 2;
+  var SWEEP_AMP = (SWEEP_MAX - SWEEP_MIN) / 2;
+  var SWEEP_NORM = Math.asin(SWEEP_SHAPE);
+  function sweepDivisions(x) {
+    return SWEEP_MID - SWEEP_AMP * Math.asin(SWEEP_SHAPE * Math.sin(x)) / SWEEP_NORM;
+  }
+
+  // the inverse: the sweep phase where the sweep is at divisions value v,
+  // heading up or down
+  function sweepPhaseAt(v, rising) {
+    var u = Math.max(-1, Math.min(1, (SWEEP_MID - v) / SWEEP_AMP));
+    var x = Math.asin(Math.sin(u * SWEEP_NORM) / SWEEP_SHAPE);
+    return rising ? Math.PI - x : x;
   }
 
   // Critically damped smoothing, from Game Programming Gems 4, as in
@@ -663,6 +687,7 @@
     var rotPhase = 0;      // u_rot, 0..1
     var palPhase = 0;      // u_palPhase, 0..1
     var sweepPhase = 0;    // radians, drives the unlocked divisions sweep
+    var sweepLocked = true; // so an unlocked start, too, picks up from the slider
     var speedS = smoother(controls.params.speed);
     var divisionsS = smoother(controls.params.divisions);
     var discriminantS = smoother(controls.params.discriminant);
@@ -687,11 +712,17 @@
       var t = speedS.value * dt;
       rotPhase = wrapTurns(rotPhase + ROT_RATE * t);
       palPhase = wrapTurns(palPhase + PALETTE_RATE * t);
-      sweepPhase = (sweepPhase + DIVISION_SWEEP_RATE * t) % (2 * Math.PI);
 
-      // divisions start 46, head down to 5, sweep up to 89 and back, ~20 min
-      // at speed 0.7; a locked slider replaces the sweep
-      var divisionsTarget = controls.locks.divisions ? p.divisions : 47 - 42 * Math.sin(sweepPhase + 0.0238);
+      // unlocked, divisions sweep between 1 and 233, ~6 min a round trip at
+      // speed 0.7; a locked slider replaces it. The sweep pauses while locked
+      // and, on unlock, picks up from the current value in the direction it
+      // was last heading (down, the first time).
+      if (sweepLocked && !controls.locks.divisions) {
+        sweepPhase = sweepPhaseAt(divisionsS.value, Math.cos(sweepPhase) < 0);
+      }
+      sweepLocked = controls.locks.divisions;
+      if (!sweepLocked) sweepPhase = (sweepPhase + DIVISION_SWEEP_RATE * t) % (2 * Math.PI);
+      var divisionsTarget = controls.locks.divisions ? p.divisions : sweepDivisions(sweepPhase);
       smoothTo(divisionsS, divisionsTarget, omega, dt, decay, 1e-4);
       controls.live.divisions = divisionsS.value;
       // unlocked, the (greyed-out) slider follows the time-run value
