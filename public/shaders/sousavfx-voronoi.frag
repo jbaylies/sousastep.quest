@@ -21,7 +21,8 @@
 // background looks like discretized LEDs wrapped around the ring pattern. The
 // site's angle and index-from-center come from the same formula as
 // buildCoordinateMaps() in SousaVFX/coordinate_maps.h: site n sits at
-// n * u_golden turns, at distance sqrt(n / (u_count - 1)) from the center.
+// n * golden angle, at distance sqrt(n / (u_count - 1)) from the center. The
+// golden angle arrives split (hi, lo) for precision, as in the index shader.
 //
 // The per-frame values (divisions, rotation, palette phase) are worked out in
 // vfx.js, which integrates them over time so the speed slider changes their
@@ -34,10 +35,17 @@
 //   case 1: index-from-center based (`indexFromCenter[i] * phaseMultIndex`) —
 //           Jason Coon's seam-free variant.
 // `u_divisions` plays the role of the phase multiplier in both cases (angular
-// divisions in case 0, cycles from the centre to the rim in case 1), and the
+// divisions in case 0, cycles per 200 sites out from the centre in case 1 —
+// from the centre to the rim at the default 201 points), and the
 // shared `rotationNormalized` term that follows the switch in the C++ is
 // `u_rot` here. The C++ case 2 (coordinate-based) is commented out upstream
 // too, so it is not ported.
+//
+// The palette position follows `totalPhase` too, like the C++'s
+// `angleOffsets[i]` feeding divisionPalette(): around the ring in case 0, out
+// from the centre in case 1. Unlike the C++ it leaves out the rotation term
+// (so the colors stay put while the divisions sweep through them) and runs
+// the other way round; u_palPhase plays the part of `gradientOffset`.
 //
 // The palette is a 16-entry texture built by vfx.js from OKLCH stops, the way
 // palette_blend.h builds currentPalette. Linear filtering with REPEAT wrap
@@ -53,7 +61,7 @@ uniform sampler2D u_indexMap;
 uniform sampler2D u_palette;
 
 uniform float u_count;     // number of sites (NUM_FIB_POINTS)
-uniform float u_golden;    // golden angle in turns
+uniform vec2 u_golden;     // golden angle in turns, split (hi, lo)
 uniform float u_divisions;
 uniform float u_rot;       // rotation, in division lengths (0..1)
 uniform float u_palPhase;  // palette scroll (0..1)
@@ -80,20 +88,23 @@ void main(void) {
   vec4 idxTex = texture2D(u_indexMap, (gl_FragCoord.xy + u_mapOffset) * u_mapInvSize);
   float n = floor(idxTex.r * 255.0 + 0.5) + 256.0 * floor(idxTex.g * 255.0 + 0.5);
 
-  // indexFromCenter: the site's index normalized to 0..1 (`swapindex[i] *
-  // oneIndex` in the C++), which is also its squared distance from the center
-  float indexFromCenter = n / (u_count - 1.0);
-  float rad = sqrt(indexFromCenter);
-  float ang = fract(n * u_golden); // turns, 0..1 like angleshirez / 360
+  float rad = sqrt(n / (u_count - 1.0)); // distance from the center, 0..1
+  float ang = fract(fract(n * u_golden.x) + n * u_golden.y); // turns, 0..1 like angleshirez / 360
+
+  // indexFromCenter: `swapindex[i] * oneIndex` in the C++, where oneIndex is a
+  // fixed 1/200 rather than 1/(count - 1). Like the angle, it depends only on
+  // the site's index, so the pattern stays attached to the sites and zooms
+  // with them as the point count changes (it matches 0..1 at 201 points).
+  float indexFromCenter = n / 200.0;
 
   // the switch: case 0 uses the site's angle, case 1 its index from the centre
   float totalPhase = mix(ang, indexFromCenter, u_maskType) * u_divisions;
   float phase = fract(totalPhase + u_rot);
   float glow = divisionMask(phase) * (1.0 - smoothstep(0.7, 1.15, rad));
 
-  // the palette stays angle-based in both modes, as only `totalPhase` is
-  // switched upstream; +1/32 lands on texel centers (entry i at i/16)
-  float palPos = fract(ang * u_divisions + u_palPhase);
+  // the palette follows the mask's phase (see the note at the top); +1/32
+  // lands on texel centers (entry i at i/16)
+  float palPos = fract(totalPhase + u_palPhase);
   vec3 lit = texture2D(u_palette, vec2(palPos + 0.03125, 0.5)).rgb;
   vec3 base = vec3(0.082, 0.106, 0.149); // #151b26
 

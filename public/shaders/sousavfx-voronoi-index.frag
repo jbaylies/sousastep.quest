@@ -10,7 +10,12 @@
 // distance sqrt(n) / sqrt(u_count - 1) from the center, so the outermost site
 // is at radius 1. The golden angle comes from phi = (1 + sqrt(D)) / 2, where D
 // is the discriminant of x^2 - x - 1 (5 for the real golden ratio); vfx.js
-// passes u_golden = 1 - 1/phi in turns, plus its cos/sin for stepping.
+// passes the golden angle 1 - 1/phi in turns, plus its cos/sin for stepping.
+//
+// The golden angle comes split in two (u_golden = hi + lo, hi a multiple of
+// 1/1024), so n * hi is exact in float32 and a site's angle stays accurate to
+// ~1e-6 turns even at n = 9000; a plain n * golden would be off by ~1e-4
+// turns there, enough to shift cells at high point counts.
 //
 // Because a site's distance from the center only grows with its index, the
 // search starts at the site whose radius matches this pixel's and walks
@@ -39,12 +44,22 @@ uniform vec2 resolution;   // viewport size in device px — pattern scale & cen
 uniform vec2 u_origin;     // pattern coordinate (device px) of texel (0, 0)
 uniform float u_texelSize; // pattern px per texel
 uniform float u_count;     // number of sites (NUM_FIB_POINTS)
-uniform float u_golden;    // golden angle in turns
+uniform vec2 u_golden;     // golden angle in turns, split (hi, lo)
 uniform vec2 u_goldenRot;  // (cos, sin) of the golden angle
 uniform float u_cellScale; // cell spacing relative to 201 sites
 
 // must cover the largest point count the controls allow
-const int MAX_POINTS = 2048;
+const int MAX_POINTS = 9001;
+
+// site n's angle in turns, 0..1
+float siteTurns(float n) {
+  return fract(fract(n * u_golden.x) + n * u_golden.y);
+}
+
+vec2 siteDir(float n) {
+  float a = 6.28318530718 * siteTurns(n);
+  return vec2(cos(a), sin(a));
+}
 
 void main(void) {
   vec2 coord = u_origin + gl_FragCoord.xy * u_texelSize;
@@ -58,12 +73,11 @@ void main(void) {
 
   // first site to check: the one whose radius sqrt(n / last) matches r
   float n0 = clamp(floor(r * r * last + 0.5), 0.0, last);
-  float a0 = 6.28318530718 * fract(n0 * u_golden);
   // `up` walks n0, n0 + 1, ... (rotating by +golden), `dn` walks n0 - 1, ...
   float nUp = n0;
   float nDn = n0 - 1.0;
-  vec2 up = vec2(cos(a0), sin(a0));
-  vec2 dn = vec2(up.x * u_goldenRot.x + up.y * u_goldenRot.y, up.y * u_goldenRot.x - up.x * u_goldenRot.y);
+  vec2 up = siteDir(nUp);
+  vec2 dn = siteDir(nDn);
   bool upDone = false;
   bool dnDone = nDn < 0.0;
 
@@ -77,6 +91,13 @@ void main(void) {
 
   for (int k = 0; k < MAX_POINTS; k++) {
     if (upDone && dnDone) break;
+
+    // stepping by rotation drifts a little each step, so re-seed both walks
+    // from the exact angle now and then (matters for long walks at high counts)
+    if (k > 0 && mod(float(k), 64.0) == 0.0) {
+      up = siteDir(nUp);
+      dn = siteDir(nDn);
+    }
 
     if (!upDone) {
       float rad = sqrt(nUp * invLast);

@@ -17,10 +17,11 @@
     <div class="vfx-background" aria-hidden="true" data-shader="{{ site.baseurl }}/public/shaders/sousavfx-voronoi.frag" data-shader-parallax="0.3" data-shader-z-index="-1"></div>
     {% if page.url == '/links/' %}
     <!-- Shader controls (links page only). Each slider drives one parameter,
-         and the shader eases toward it. `speed` scales the rate of the
+         and the shader eases toward it; double-clicking a slider resets it. `speed` scales the rate of the
          animation (negative values run it backwards). `divisions` has a lock:
          on, the slider value is used; off, the shader's own time-run sweep
-         controls it again. Adjusting the slider checks the lock
+         controls it again and the greyed-out slider follows it. Locking keeps
+         the current value; adjusting the slider checks the lock
          automatically. On viewports wide enough to fit it beside the
          left-aligned text column, CSS shows the panel on the right hand side;
          narrower viewports get the header button below, which opens it as a
@@ -56,7 +57,7 @@
           <input class="vfx-lock" id="vfx-divisions-lock" type="checkbox" checked>
           <span>lock</span>
         </label>
-        <input class="vfx-slider" id="vfx-divisions" type="range" min="5" max="89" step="0.5" value="56" data-shader-param="divisions">
+        <input class="vfx-slider" id="vfx-divisions" type="range" min="1" max="233" step="0.5" value="56" data-shader-param="divisions">
       </div>
 
       <!-- mask mode, ported from the SousaVFX `params.maskType` switch: off is
@@ -73,13 +74,14 @@
            sites at multiples of the golden angle 360 * (1 - 1/phi), with
            phi = (1 + sqrt(D)) / 2. D = 5 is the golden ratio; D runs 1..9,
            which sweeps the angle through 0..180 degrees. Changing either
-           rebuilds the voronoi map. -->
+           rebuilds the voronoi map. `points` is logarithmic (2..9001; position
+         548 of 1000 is 201), so low counts aren't crammed into the left end. -->
       <p class="vfx-section">spiral</p>
 
       <div class="vfx-control">
         <label class="vfx-control-name" for="vfx-points">points</label>
         <output class="vfx-control-value" for="vfx-points">201</output>
-        <input class="vfx-slider" id="vfx-points" type="range" min="2" max="1000" step="1" value="201" data-shader-param="points">
+        <input class="vfx-slider" id="vfx-points" type="range" min="0" max="1000" step="1" value="548" data-log-min="2" data-log-max="9001" data-shader-param="points">
       </div>
 
       <div class="vfx-control">

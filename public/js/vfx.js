@@ -35,7 +35,8 @@
 // Frames where nothing would change (speed 0, nothing easing, no scroll) are
 // skipped, so a still background costs no GPU time.
 //   divisions     with its lock on, the slider value; off, the time-run sweep
-//   points        NUM_FIB_POINTS, the number of phyllotaxis sites
+//   points        NUM_FIB_POINTS, the number of phyllotaxis sites (2..9001,
+//                 on a logarithmic slider)
 //   discriminant  D in phi = (1 + sqrt(D)) / 2; 5 is the golden ratio
 //   hue .. chroma the five OKLCH synth knobs of the SousaVFX Max patch
 //                 (oklch_synth_codebox.txt), in CSS-style units
@@ -45,9 +46,18 @@
 (function(document) {
   var INDEX_SUFFIX = '-index.frag';
   var VERT = '\n attribute vec2 coords;\n void main(void) {\n   gl_Position = vec4(coords.xy, 0.0, 1.0);\n }\n ';
-  var MAX_POINTS = 2048; // must match MAX_POINTS in the index shader
+  var MAX_POINTS = 9001; // must match MAX_POINTS in the index shader
   // cap the index map's size; a taller map is rendered at a lower resolution
   var MAX_MAP_PIXELS = 16e6;
+  // GPU time budgets for an index-map build, in ms: while the spiral is
+  // changing (rebuilt every frame), and once it has settled (a one-off). A
+  // timed probe at 1/8 resolution predicts the cost, and a build that would
+  // run over budget is made at a lower resolution instead. Most spirals fit
+  // at full resolution; high point counts with D near 1 or 9 (sites bunched
+  // on a few spokes) can cost seconds at full resolution.
+  var LIVE_BUDGET_MS = 12;
+  var SETTLED_BUDGET_MS = 150;
+  var PROBE_SCALE = 1 / 8;
   // skip frames faster than this, so high-refresh displays draw ~60 fps
   var MIN_FRAME_MS = 12;
   // roughly the time to cover 60% of a change; settles in about 3x this
@@ -293,7 +303,10 @@
     if (reduced) {
       speed = 0;
       var speedSlider = document.querySelector('.vfx-controls [data-shader-param="speed"]');
-      if (speedSlider) speedSlider.value = 0;
+      if (speedSlider) {
+        speedSlider.defaultValue = '0'; // what a double-click resets it to
+        speedSlider.value = '0';
+      }
     }
 
     // Shader control panel state, shared with the render loop: `params` are the
@@ -307,7 +320,11 @@
       },
       locks: { divisions: 1 },
       maskType: 0,
-      swatch: document.querySelector('.vfx-controls .vfx-palette')
+      swatch: document.querySelector('.vfx-controls .vfx-palette'),
+      // per-parameter slider rows, so the render loop can show live values
+      rows: {},
+      // the values the shader is using right now (eased, or time-run)
+      live: {}
     };
 
     // narrow viewports: the header button opens the panel as a bottom sheet
@@ -345,6 +362,11 @@
       syncMask();
     }
 
+    // Each row: double-click the slider to reset it to its default (the
+    // value in the markup). A slider with data-log-min/max is logarithmic: its
+    // position 0..max maps to a value from log-min to log-max, rounded to an
+    // integer. The divisions row's lock: unlocked, the slider follows the
+    // time-run value; locking it keeps whatever value it has right then.
     Array.prototype.forEach.call(document.querySelectorAll('.vfx-controls .vfx-control'), function(row) {
       var slider = row.querySelector('input[type="range"]');
       var lock = row.querySelector('.vfx-lock'); // only the divisions row has one
@@ -352,28 +374,69 @@
       var name = slider && slider.getAttribute('data-shader-param');
       if (!name) return;
 
+      var logMin = parseFloat(slider.getAttribute('data-log-min'));
+      var logMax = parseFloat(slider.getAttribute('data-log-max'));
+      var isLog = logMin > 0 && logMax > logMin;
+      var posMax = parseFloat(slider.max);
+
       // enough decimals to show every value the slider's step can land on
       var step = parseFloat(slider.getAttribute('step'));
-      var decimals = step ? Math.max(0, Math.min(3, Math.ceil(-Math.log(step) / Math.LN10))) : 2;
+      var decimals = isLog ? 0 : (step ? Math.max(0, Math.min(3, Math.ceil(-Math.log(step) / Math.LN10))) : 2);
+
+      function toValue(pos) {
+        return isLog ? Math.round(logMin * Math.pow(logMax / logMin, pos / posMax)) : pos;
+      }
+
+      function toPos(v) {
+        return isLog ? posMax * Math.log(v / logMin) / Math.log(logMax / logMin) : v;
+      }
 
       function isLocked() {
         return !lock || lock.checked; // a row without a checkbox is always locked
       }
 
-      function sync() {
-        var v = parseFloat(slider.value);
-        controls.params[name] = v;
+      function showLocked() {
         if (lock) controls.locks[name] = isLocked() ? 1 : 0;
-        if (value) value.textContent = v.toFixed(decimals);
         row.className = 'vfx-control' + (isLocked() ? ' is-locked' : '');
       }
 
+      // moves the slider and readout without touching the parameter
+      function show(v) {
+        slider.value = toPos(v);
+        if (value) value.textContent = v.toFixed(decimals);
+      }
+
+      function sync() {
+        var v = toValue(parseFloat(slider.value));
+        controls.params[name] = v;
+        if (value) value.textContent = v.toFixed(decimals);
+        showLocked();
+      }
+
       // moving a slider claims its parameter, so the lock checks itself on
-      slider.addEventListener('input', function() {
+      function claim() {
         if (lock) lock.checked = true;
         sync();
+      }
+
+      slider.addEventListener('input', claim);
+      slider.addEventListener('dblclick', function() {
+        slider.value = slider.defaultValue;
+        claim();
       });
-      if (lock) lock.addEventListener('change', sync);
+      slider.title = 'double-click to reset';
+      if (lock) {
+        lock.addEventListener('change', function() {
+          // lock on the value the shader is showing right now
+          var live = controls.live[name];
+          if (lock.checked && live !== undefined) {
+            controls.params[name] = live;
+            show(live);
+          }
+          showLocked();
+        });
+      }
+      controls.rows[name] = { show: show };
       sync();
     });
 
@@ -436,22 +499,46 @@
       iu[name] = gl.getUniformLocation(idxProg, name);
     });
 
+    function mapTexture() {
+      var t = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      return { tex: t, fbo: gl.createFramebuffer(), w: 0, h: 0 };
+    }
+
+    // (re)allocates a map texture at w x h and binds its framebuffer
+    function bindTarget(target, w, h) {
+      gl.bindTexture(gl.TEXTURE_2D, target.tex);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo);
+      if (w !== target.w || h !== target.h) {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, target.tex, 0);
+        if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE) {
+          throw new Error('vfx: index framebuffer incomplete');
+        }
+        target.w = w;
+        target.h = h;
+      }
+      gl.viewport(0, 0, w, h);
+    }
+
     // texture units are fixed: 0 = index map, 1 = palette
     gl.useProgram(prog);
     gl.uniform1i(u.u_indexMap, 0);
     gl.uniform1i(u.u_palette, 1);
 
-    // offscreen index texture + framebuffer (rebuilt only when the spiral or
-    // the page/viewport size changes). Plain RGBA8 is fine: it stores the
-    // nearest site INDEX (exact in 16 bits across R and G) plus two smooth
-    // 0..1 values, not a quantized position.
-    var tex = gl.createTexture();
-    var fbo = gl.createFramebuffer();
-    gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    // offscreen index textures + framebuffers (rebuilt only when the spiral or
+    // the page/viewport size changes): the map itself, and the small probe
+    // that times each build, which doubles as the map when even a reduced
+    // build would be over budget. Plain RGBA8 is fine: it stores the nearest
+    // site INDEX (exact in 16 bits across R and G) plus two smooth 0..1
+    // values, not a quantized position.
+    var mainTarget = mapTexture();
+    var probeTarget = mapTexture();
+    var readback = new Uint8Array(4);
 
     // 16x1 palette texture; LINEAR + REPEAT blends entries (15 wraps to 0)
     var palTex = gl.createTexture();
@@ -470,67 +557,78 @@
     var viewH = 1;
     var pageH = 1;
 
-    // the index map as last built: its size in texels, the pattern px per
+    // the index map as last built: the texture holding it, its pattern px per
     // texel scale, the pattern y of its bottom row, and the spiral it holds
-    var map = { w: 0, h: 0, scale: 1, originY: 0, count: 0, discriminant: 0, golden: 0, preview: false, version: 0, dirty: true };
+    var map = {
+      target: mainTarget, scale: 1, originY: 0, count: 0, discriminant: 0, golden: [0, 0],
+      preview: false, settled: false, version: 0, dirty: true
+    };
 
     // phyllotaxis golden angle in turns for phi = (1 + sqrt(D)) / 2, as in
-    // buildCoordinateMaps(): 360 * (1 - 1 / phi) degrees
+    // buildCoordinateMaps(): 360 * (1 - 1 / phi) degrees. Split into a
+    // multiple of 1/1024 plus the rest, so n * hi is exact in the shaders'
+    // float32 (see sousavfx-voronoi-index.frag).
     function goldenTurns(discriminant) {
-      return 1 - 2 / (1 + Math.sqrt(Math.max(discriminant, 0)));
+      var g = 1 - 2 / (1 + Math.sqrt(Math.max(discriminant, 0)));
+      var hi = Math.floor(g * 1024) / 1024;
+      return [hi, g - hi];
     }
 
     function pointCount() {
       return Math.max(2, Math.min(MAX_POINTS, Math.round(controls.params.points)));
     }
 
-    // `preview` builds at CSS-pixel resolution instead of device pixels (a
-    // quarter of the work on retina), for rebuilds every frame while the
-    // spiral is changing; a full-resolution build follows once it settles
-    function buildIndexMap(discriminant, preview) {
-      // pattern space spans the page, plus the extra distance the pattern
-      // travels below it at full scroll (see the parallax note at the top)
-      var span = (1 - parallax) * Math.max(0, pageH - viewH);
-      var mapH = pageH + span;
-      var scale = Math.min(1, maxTex / mapH, maxTex / viewW, Math.sqrt(MAX_MAP_PIXELS / (viewW * mapH)));
-      if (preview) scale = Math.min(scale, 1 / dpr);
-      var w = Math.max(1, Math.ceil(viewW * scale));
-      var h = Math.max(1, Math.ceil(mapH * scale));
-
-      gl.bindTexture(gl.TEXTURE_2D, tex);
-      if (w !== map.w || h !== map.h) {
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
-        if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE) {
-          throw new Error('vfx: index framebuffer incomplete');
-        }
-      } else {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-      }
-
-      var count = pointCount();
-      var golden = goldenTurns(discriminant);
-      gl.viewport(0, 0, w, h);
+    function drawIndexMap(target, scale, span, count, golden) {
+      bindTarget(target, Math.max(1, Math.ceil(viewW * scale)), Math.max(1, Math.ceil((pageH + span) * scale)));
       gl.useProgram(idxProg);
       gl.uniform2f(iu.resolution, viewW, viewH);
       gl.uniform2f(iu.u_origin, 0, -span);
       gl.uniform1f(iu.u_texelSize, 1 / scale);
       gl.uniform1f(iu.u_count, count);
-      gl.uniform1f(iu.u_golden, golden);
-      gl.uniform2f(iu.u_goldenRot, Math.cos(2 * Math.PI * golden), Math.sin(2 * Math.PI * golden));
+      gl.uniform2f(iu.u_golden, golden[0], golden[1]);
+      var g = 2 * Math.PI * (golden[0] + golden[1]);
+      gl.uniform2f(iu.u_goldenRot, Math.cos(g), Math.sin(g));
       gl.uniform1f(iu.u_cellScale, Math.sqrt(201 / count));
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
+    // Builds the map within `budget` ms of GPU time: the probe is drawn at
+    // 1/8 resolution and timed (reading a pixel back waits for the GPU), and
+    // since the cost goes with the pixel count, the full map's resolution is
+    // picked from that so the build fits the budget.
+    function buildIndexMap(discriminant, budget) {
+      // pattern space spans the page, plus the extra distance the pattern
+      // travels below it at full scroll (see the parallax note at the top)
+      var span = (1 - parallax) * Math.max(0, pageH - viewH);
+      var mapH = pageH + span;
+      var fullScale = Math.min(1, maxTex / mapH, maxTex / viewW, Math.sqrt(MAX_MAP_PIXELS / (viewW * mapH)));
+      var probeScale = fullScale * PROBE_SCALE;
+      var count = pointCount();
+      var golden = goldenTurns(discriminant);
+
+      var t0 = performance.now();
+      drawIndexMap(probeTarget, probeScale, span, count, golden);
+      gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, readback);
+      var predicted = (performance.now() - t0) / (PROBE_SCALE * PROBE_SCALE);
+      var scale = fullScale * Math.min(1, Math.sqrt(budget / Math.max(predicted, 1e-3)));
+
+      if (scale < probeScale * 1.5) {
+        // not worth a second build barely sharper than the probe
+        map.target = probeTarget;
+        scale = probeScale;
+      } else {
+        map.target = mainTarget;
+        drawIndexMap(mainTarget, scale, span, count, golden);
+      }
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 
-      map.w = w;
-      map.h = h;
       map.scale = scale;
       map.originY = -span;
       map.count = count;
       map.discriminant = discriminant;
       map.golden = golden;
-      map.preview = !!preview && scale < 1;
+      map.preview = scale < fullScale * 0.999;
+      map.settled = budget >= SETTLED_BUDGET_MS;
       map.version++;
       map.dirty = false;
     }
@@ -572,6 +670,7 @@
     // seconds the spiral has been still; the map is a preview until it settles
     var spiralStill = 1;
     var paletteVersion = 0;
+    var shownDivisions = '';
     // what the canvas last showed, so an unchanged frame isn't redrawn
     var drawnKey = '';
     var lastNow = null;
@@ -594,6 +693,16 @@
       // at speed 0.7; a locked slider replaces the sweep
       var divisionsTarget = controls.locks.divisions ? p.divisions : 47 - 42 * Math.sin(sweepPhase + 0.0238);
       smoothTo(divisionsS, divisionsTarget, omega, dt, decay, 1e-4);
+      controls.live.divisions = divisionsS.value;
+      // unlocked, the (greyed-out) slider follows the time-run value
+      var divisionsRow = controls.rows.divisions;
+      if (divisionsRow && !controls.locks.divisions) {
+        var shown = divisionsS.value.toFixed(1);
+        if (shown !== shownDivisions) {
+          shownDivisions = shown;
+          divisionsRow.show(divisionsS.value);
+        }
+      }
       smoothTo(discriminantS, p.discriminant, omega, dt, decay, 1e-5);
       if (discriminantS.value !== map.discriminant || pointCount() !== map.count) {
         map.dirty = true;
@@ -603,7 +712,8 @@
       }
       // a quick slider drag leaves the spiral still for a frame or two, so
       // wait a moment before the full-resolution build
-      if (map.preview && spiralStill > 0.15) map.dirty = true;
+      // (a settled build is final, even if it had to stay below full resolution)
+      if (map.preview && !map.settled && spiralStill > 0.15) map.dirty = true;
 
       if (updatePalette(palette, p, omega, dt, decay)) {
         paletteVersion++;
@@ -624,8 +734,11 @@
 
     function draw() {
       resize();
-      // the first build (and a resize) goes straight to full resolution
-      if (map.dirty) buildIndexMap(discriminantS.value, map.count > 0 && spiralStill <= 0.15);
+      // a full-budget build once the spiral settles (and on the first build
+      // or a resize); a quick one each frame while it is changing
+      if (map.dirty) {
+        buildIndexMap(discriminantS.value, map.count > 0 && spiralStill <= 0.15 ? LIVE_BUDGET_MS : SETTLED_BUDGET_MS);
+      }
 
       // scroll parallax: the viewport looks at pattern rows off .. off + viewH,
       // starting at the top of pattern space and moving down it at
@@ -645,14 +758,14 @@
       gl.viewport(0, 0, viewW, viewH);
       gl.useProgram(prog);
       gl.uniform2f(u.u_mapOffset, 0, off - map.originY);
-      gl.uniform2f(u.u_mapInvSize, map.scale / map.w, map.scale / map.h);
+      gl.uniform2f(u.u_mapInvSize, map.scale / map.target.w, map.scale / map.target.h);
       gl.uniform1f(u.u_count, map.count);
-      gl.uniform1f(u.u_golden, map.golden);
+      gl.uniform2f(u.u_golden, map.golden[0], map.golden[1]);
       gl.uniform1f(u.u_divisions, divisionsS.value);
       gl.uniform1f(u.u_rot, rotPhase);
       gl.uniform1f(u.u_palPhase, palPhase);
       gl.uniform1f(u.u_maskType, controls.maskType);
-      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.bindTexture(gl.TEXTURE_2D, map.target.tex);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
 

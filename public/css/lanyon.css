@@ -713,6 +713,7 @@ a.pagination-item:hover {
   margin: 0;
   accent-color: #7fd0c0;
   cursor: pointer;
+  touch-action: manipulation; /* double-tap resets instead of zooming */
 }
 
 /* the time-run equation owns the parameter until the row is locked */
